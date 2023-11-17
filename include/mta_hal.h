@@ -533,7 +533,7 @@ _MTAMGMT_MTA_CALLP
                                                                        Ensure it doesn't exceed a 64-byte buffer size. The value is: In Use, Idle, Out of Service */
     CHAR                            CallPState[64];               /**< It is a character array that represents the callpstate.
                                                                        Ensure it doesn't exceed a 64-byte buffer size. The value is: In Service, OOS. */
-    CHAR                            LoopCurrent[64];              /**< It is a character array that represents the boosted loop current status..
+    CHAR                            LoopCurrent[64];              /**< It is a character array that represents the boosted loop current status.
                                                                        Ensure it doesn't exceed a 64-byte buffer size. The value is: Normal, Boosted */
 }
 MTAMGMT_MTA_CALLP,  *PMTAMGMT_MTA_CALLP;

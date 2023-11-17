@@ -633,13 +633,11 @@ typedef enum{
 
 /**
 * @brief Retrieves the global information for all shared DBs and makes them accessible locally.
-* @param None
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 
 *
 * @note This function must not suspend and must not invoke any blocking system
@@ -656,7 +654,6 @@ INT   mta_hal_InitDB(void);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -672,7 +669,6 @@ INT mta_hal_GetDHCPInfo(PMTAMGMT_MTA_DHCP_INFO pInfo);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -683,13 +679,11 @@ INT mta_hal_GetDHCPV6Info(PMTAMGMT_MTA_DHCPv6_INFO pInfo);
 
 /**
 * @brief Get number of entries in the line table.
-* @param None
 *
 * @return ULONG - number of entries
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -706,7 +700,6 @@ ULONG mta_hal_LineTableGetNumberOfEntries(void);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -722,7 +715,6 @@ INT   mta_hal_LineTableGetEntry(ULONG Index, PMTAMGMT_MTA_LINETABLE_INFO pEntry)
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -741,7 +733,6 @@ INT   mta_hal_TriggerDiagnostics(ULONG Index);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -759,7 +750,6 @@ INT   mta_hal_GetServiceFlow(ULONG* Count, PMTAMGMT_MTA_SERVICE_FLOW *ppCfg);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -775,7 +765,6 @@ INT   mta_hal_DectGetEnable(BOOLEAN *pBool);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -785,7 +774,7 @@ INT mta_hal_DectSetEnable(BOOLEAN bBool);
 
 /**
 * @brief Get Dect registration mode, whether enabled or not.
-* @param[out] bBool - It is a boolean pointer of 1 byte size, that stores the value of Dect enabled or not, to be returned. The values are: "TRUE", "FALSE".
+* @param[out] pBool - It is a boolean pointer of 1 byte size, that stores the value of Dect enabled or not, to be returned. The values are: "TRUE", "FALSE".
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
@@ -793,7 +782,6 @@ INT mta_hal_DectSetEnable(BOOLEAN bBool);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -809,7 +797,6 @@ INT mta_hal_DectGetRegistrationMode(BOOLEAN* pBool);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -825,7 +812,6 @@ INT mta_hal_DectSetRegistrationMode(BOOLEAN bBool);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -841,7 +827,6 @@ INT mta_hal_DectDeregisterDectHandset(ULONG uValue);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -860,7 +845,6 @@ INT mta_hal_GetDect(PMTAMGMT_MTA_DECT pDect);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -877,7 +861,6 @@ INT mta_hal_GetDectPIN(char* pPINString);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -895,7 +878,6 @@ INT mta_hal_SetDectPIN(char* pPINString);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -915,7 +897,6 @@ INT mta_hal_GetHandsets(ULONG* pulCount, PMTAMGMT_MTA_HANDSETS_INFO* ppHandsets)
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -933,7 +914,6 @@ INT   mta_hal_GetCalls(ULONG InstanceNumber, ULONG *Count, PMTAMGMT_MTA_CALLS *p
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -952,7 +932,6 @@ INT   mta_hal_GetCALLP(ULONG LineNumber, PMTAMGMT_MTA_CALLP pCallp);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -970,7 +949,6 @@ INT   mta_hal_GetDSXLogs(ULONG *Count, PMTAMGMT_MTA_DSXLOG *ppDSXLog);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -986,7 +964,6 @@ INT   mta_hal_GetDSXLogEnable(BOOLEAN *pBool);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1003,7 +980,6 @@ INT   mta_hal_SetDSXLogEnable(BOOLEAN Bool);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1021,7 +997,6 @@ INT mta_hal_ClearDSXLog(BOOLEAN Bool) ;
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1038,7 +1013,6 @@ INT mta_hal_GetCallSignallingLogEnable(BOOLEAN *pBool) ;
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1056,7 +1030,6 @@ INT mta_hal_SetCallSignallingLogEnable(BOOLEAN Bool) ;
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1076,7 +1049,6 @@ INT mta_hal_ClearCallSignallingLog(BOOLEAN Bool) ;
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1095,7 +1067,6 @@ INT mta_hal_GetMtaLog(ULONG *Count, PMTAMGMT_MTA_MTALOG_FULL *ppCfg);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1113,7 +1084,6 @@ INT mta_hal_BatteryGetInstalled(BOOLEAN* Val);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1123,7 +1093,7 @@ INT mta_hal_BatteryGetTotalCapacity(ULONG* Val);
 
 /**
 * @brief Retrieve the actual capacity of the battery
-* @param[out] INT* Val - Pointer to variable that stores the capacity in mAVHour. It is an unsigned long integer pointer with 4 bytes size. The range is 0 to the (2^32)-1.
+* @param[out] Val - Pointer to variable that stores the capacity in mAVHour. It is an unsigned long integer pointer with 4 bytes size. The range is 0 to the (2^32)-1.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
@@ -1131,7 +1101,6 @@ INT mta_hal_BatteryGetTotalCapacity(ULONG* Val);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1149,7 +1118,6 @@ INT mta_hal_BatteryGetActualCapacity(ULONG* Val);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1167,7 +1135,6 @@ INT mta_hal_BatteryGetRemainingCharge(ULONG* Val);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1185,7 +1152,6 @@ INT mta_hal_BatteryGetRemainingTime(ULONG* Val);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1205,7 +1171,6 @@ INT mta_hal_BatteryGetNumberofCycles(ULONG* Val);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1225,7 +1190,6 @@ INT mta_hal_BatteryGetPowerStatus(CHAR *Val, ULONG *len);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1246,7 +1210,6 @@ INT mta_hal_BatteryGetCondition(CHAR *Val, ULONG *len);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1266,7 +1229,6 @@ INT mta_hal_BatteryGetStatus(CHAR* Val, ULONG *len);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1283,7 +1245,6 @@ INT mta_hal_BatteryGetLife(CHAR* Val, ULONG *len);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1301,7 +1262,6 @@ INT mta_hal_BatteryGetInfo(PMTAMGMT_MTA_BATTERY_INFO pInfo);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1319,7 +1279,6 @@ INT mta_hal_BatteryGetPowerSavingModeStatus(ULONG *pValue);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1338,7 +1297,6 @@ INT mta_hal_Get_MTAResetCount(ULONG *resetcnt);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1355,7 +1313,6 @@ INT mta_hal_Get_LineResetCount(ULONG *resetcnt);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1374,7 +1331,6 @@ INT mta_hal_ClearCalls(ULONG InstanceNumber);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1392,7 +1348,6 @@ INT mta_hal_getDhcpStatus(MTAMGMT_MTA_STATUS *output_pIpv4status, MTAMGMT_MTA_ST
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1411,7 +1366,6 @@ INT mta_hal_getConfigFileStatus(MTAMGMT_MTA_STATUS *poutput_status);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1427,7 +1381,6 @@ INT mta_hal_getLineRegisterStatus(MTAMGMT_MTA_STATUS *output_status_array, int a
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1445,7 +1398,6 @@ INT mta_hal_devResetNow(BOOLEAN bResetValue);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1463,7 +1415,6 @@ INT mta_hal_getMtaOperationalStatus(MTAMGMT_MTA_STATUS *operationalStatus);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1506,7 +1457,6 @@ MTAMGMT_PROVISIONING_PARAMS, *PMTAMGMT_MTA_PROVISIONING_PARAMS;
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1525,7 +1475,6 @@ INT mta_hal_start_provisioning(PMTAMGMT_MTA_PROVISIONING_PARAMS pParameters);
 *
 * @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
-* @execution Asynchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.
@@ -1535,7 +1484,7 @@ typedef INT ( * mta_hal_getLineRegisterStatus_callback)(MTAMGMT_MTA_STATUS *outp
 
 /**
 * @brief This call back will be invoked to returing MTA line
-* @param[in] mta_hal_getLineRegisterStatus_callback callback_proc - Callback registration function.
+* @param[in] callback_proc - Callback registration function.
 *                                                                   \n The parameters are defined below:
 *                                                                   \n      output_status_array - Output parameter to return array buffer for all line register status.
 *                                                                   \n      array_size - buffer size (total line number). Input parameter of integer type. The range of values are -2^31 to (2^31)-1.
@@ -1543,7 +1492,6 @@ typedef INT ( * mta_hal_getLineRegisterStatus_callback)(MTAMGMT_MTA_STATUS *outp
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @execution Synchronous.
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.

@@ -83,7 +83,7 @@ The component should not contributing more to memory and CPU utilization while p
 
 ## Quality Control
 
-Platform HAL implementation should pass `Coverity`, `Black duck`, `Valgrind` checks without any issue.
+MTA HAL implementation should pass `Coverity`, `Black duck`, `Valgrind` checks without any issue.
 
 There should not be any memory leaks/corruption introduced by HAL and underneath 3rd party software implementation.
 

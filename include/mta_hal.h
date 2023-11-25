@@ -1488,9 +1488,6 @@ typedef INT ( * mta_hal_getLineRegisterStatus_callback)(MTAMGMT_MTA_STATUS *outp
 *                                                                   \n The parameters are defined below:
 *                                                                   \n      output_status_array - Output parameter to return array buffer for all line register status.
 *                                                                   \n      array_size - buffer size (total line number). Input parameter of integer type. The range of values are -2^31 to (2^31)-1.
-* @return The status of the operation.
-* @retval RETURN_OK if successful.
-* @retval RETURN_ERR if any error is detected
 *
 *
 * @note This function must not suspend and must not invoke any blocking system

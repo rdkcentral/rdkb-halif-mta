@@ -1485,10 +1485,6 @@ typedef INT ( * mta_hal_getLineRegisterStatus_callback)(MTAMGMT_MTA_STATUS *outp
 /**
 * @brief This call back will be invoked to returing MTA line
 * @param[in] callback_proc - Callback registration function.
-*                                                                   \n The parameters are defined below:
-*                                                                   \n      output_status_array - Output parameter to return array buffer for all line register status.
-*                                                                   \n      array_size - buffer size (total line number). Input parameter of integer type. The range of values are -2^31 to (2^31)-1.
-*
 *
 * @note This function must not suspend and must not invoke any blocking system
 * calls. It should probably just send a message to a driver event handler task.

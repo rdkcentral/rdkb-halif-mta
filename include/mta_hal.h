@@ -575,6 +575,11 @@ _MTAMGMT_MTA_MTALOG_FULL
 }
 MTAMGMT_MTA_MTALOG_FULL,  *PMTAMGMT_MTA_MTALOG_FULL;
 
+/**
+ * @brief Structure to hold the battery information.
+ * @note Ensure that any value specified does not exceed the buffer size
+ * limit defined.
+ */
 typedef  struct
 _MTAMGMT_MTA_BATTERY_INFO
 {

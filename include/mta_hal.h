@@ -1138,6 +1138,11 @@ typedef  enum {
    MTA_DUAL_STACK=2,    /**<  Dual stack mode */
 } MTAMGMT_MTA_PROV_IP_MODE; // MTAMGMT_PROVISIONING_PARAMS.MtaIPMode
 
+/**
+ * @brief Structure to hold all the provisioning parameters for MTA.
+ * @note Ensure that any value specified does not exceed the buffer size
+ * limit defined.
+ */
 
 typedef struct _MTAMGMT_PROVISIONING_PARAMS
 {

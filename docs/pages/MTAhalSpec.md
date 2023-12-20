@@ -139,7 +139,7 @@ Vendor Software->>MTA HAL:
 MTA HAL->>Client Module: return
 
 Client Module->>MTA HAL: mta_hal_start_provisioning()
-MTA HAL->>Vendor Software: UDHCP_Enable_v2 is false
+MTA HAL->>Vendor Software: 
 Vendor Software->>MTA HAL: 
 MTA HAL->>Client Module: return
 

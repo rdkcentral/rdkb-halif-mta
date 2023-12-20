@@ -80,7 +80,7 @@ MTA HAL component should log all the error and critical informative messages whi
 
 The logging should be consistence across all HAL components.
 
-If the vendor is going to log then it has to be logged in `xxx_vendor_hal.log` file name which can be placed in `/rdklogs/logs/` directory.
+If the vendor is going to log then it has to be logged in `xxx_vendor_hal.log` file name which can be placed in `/rdklogs/logs/` or `/var/tmp/` directory.
 
 Logging should be defined with log levels as per Linux standard logging.
 
@@ -90,7 +90,7 @@ The component should not contributing more to memory and CPU utilization while p
 
 ## Quality Control
 
-MTA HAL implementation should pass checks using third party tools like `Coverity`, `Black duck`, `Valgrind` without any issue to ensure quality.
+MTA HAL implementation should pass checks using any third party tools like `Coverity`, `Black duck`, `Valgrind` etc. without any issue to ensure quality.
 
 There should not be any memory leaks/corruption introduced by HAL and underneath 3rd party software implementation.
 

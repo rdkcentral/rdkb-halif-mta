@@ -258,10 +258,8 @@ _MTAMGMT_MTA_DHCPv6_INFO
 {
     CHAR                            IPV6Address[INET6_ADDRSTRLEN];              /**< It is a 46 bytes character array represents the IPV6 Address.
                                                                                      The valid range is: 0000::/8, 2000::/3, FC00::/7, FE80::/10 and FF00::/8 */
-    CHAR                            BootFileName[64];                           /**< Represents the Boot File Name.
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size.*/
-    CHAR                            FQDN[64];                                   /**< Represents the fully qualified domain name.
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size.*/
+    CHAR                            BootFileName[64];                           /**< Represents the Boot File Name. */
+    CHAR                            FQDN[64];                                   /**< Represents the fully qualified domain name. */
     CHAR                            Prefix[INET6_ADDRSTRLEN];                   /**< It is a 46 bytes character array represents the Prefix. It is vendor specific. */
     CHAR                            Gateway[INET6_ADDRSTRLEN];                  /**< It is a 46 bytes character array that represents the Gateway.
                                                                                      The valid range is: 0000::/8, 2000::/3, FC00::/7, FE80::/10 and FF00::/8 */

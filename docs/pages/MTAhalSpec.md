@@ -7,6 +7,7 @@
 - `HAL` \- Hardware Abstraction Layer
 - `RDK-B` \- Reference Design Kit for Broadband Devices
 - `OEM` \- Original Equipment Manufacture
+- `DSX` \- Digital Signal Cross-connect
 
 ## Description
 The diagram below describes a high-level software architecture of the MTA(Media Terminal Adapter) HAL module stack.
@@ -76,7 +77,7 @@ Following non functional requirement should be supported by the component.
 
 ## Logging and debugging requirements
 
-MTA HAL component should log all the error and critical informative messages which helps to debug/triage the issues and understand the functional flow of the system.
+MTA HAL component should log all the error and critical informative messages, preferably using printf, syslog which helps to debug/triage the issues and understand the functional flow of the system.
 
 The logging should be consistence across all HAL components.
 

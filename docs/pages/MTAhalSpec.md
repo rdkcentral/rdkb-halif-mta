@@ -2,12 +2,14 @@
 
 ## Acronyms
 
+- `MTA` \- Media Terminal Adapter
+- `DECT` \- Digital Enhanced Cordless Telecommunications
 - `HAL` \- Hardware Abstraction Layer
 - `RDK-B` \- Reference Design Kit for Broadband Devices
 - `OEM` \- Original Equipment Manufacture
 
 ## Description
-The diagram below describes a high-level software architecture of the MTA HAL module stack.
+The diagram below describes a high-level software architecture of the MTA(Media Terminal Adapter) HAL module stack.
 
 ![MTA HAL Architecture Diag](images/mta_hal_architecture.png)
 
@@ -30,7 +32,7 @@ The interface is not thread safe.
 
 Any module which is invoking the MTA HAL API should ensure calls are made in a thread safe manner.
 
-Different 3rd party vendors allowed to create internal threads to  meet the operational requirements. In this case 3rd party implementations should be responsible to synchronize between the calls, events and cleanup the thread.
+Vendors can create internal threads/events to meet their operation requirements.  These should be responsible to synchronize between the calls, events and cleaned up on closure.
 
 ## Process Model
 
@@ -40,6 +42,8 @@ All API's are expected to be called from multiple process.
 
 The client is responsible to allocate and deallocate memory for necessary APIs as specified in API Documentation.
 Different 3rd party vendors allowed to allocate memory for internal operational requirements. In this case 3rd party implementations should be responsible to de-allocate internally.
+
+[TODO]: # (State a footprint requirement. Example: This should not exceed XXXX KB.)
 
 ## Power Management Requirements
 
@@ -52,8 +56,11 @@ There are no asynchronous notifications.
 
 ## Blocking calls
 
-The APIs are expected to work synchronously and should complete within a time period commensurate with the complexity of the operation and in accordance with any relevant MTA specification. The APIs should probably just send a message to a driver event handler task.
+The APIs are expected to work synchronously and should complete within a time period commensurate with the complexity of the operation and in accordance with any relevant MTA specification. 
 Any calls that can fail due to the lack of a response from connected device should have a timeout period in accordance with any API documentation.
+The upper layers will call this API from a single thread context, this API should not suspend.
+
+[TODO]: # (As we state that they should complete within a time period, we need to state what that time target is, and pull it from the spec if required. Define the timeout requirement.)
 
 ## Internal Error Handling
 
@@ -73,7 +80,7 @@ MTA HAL component should log all the error and critical informative messages whi
 
 The logging should be consistence across all HAL components.
 
-If the vendor is going to log then it has to be logged in `xxx_vendor_hal.log` file name.
+If the vendor is going to log then it has to be logged in `xxx_vendor_hal.log` file name which can be placed in `/rdklogs/logs/` directory.
 
 Logging should be defined with log levels as per Linux standard logging.
 
@@ -83,7 +90,7 @@ The component should not contributing more to memory and CPU utilization while p
 
 ## Quality Control
 
-MTA HAL implementation should pass `Coverity`, `Black duck`, `Valgrind` checks without any issue.
+MTA HAL implementation should pass checks using third party tools like `Coverity`, `Black duck`, `Valgrind` without any issue to ensure quality.
 
 There should not be any memory leaks/corruption introduced by HAL and underneath 3rd party software implementation.
 
@@ -93,11 +100,11 @@ MTA HAL implementation is expected to released under the Apache License 2.0.
 
 ## Build Requirements
 
-The source code should be build under Linux Yocto environment and should be delivered as a shared library named as `libhal_mta.so`
+The source code should be able to be built under Linux Yocto environment and should be delivered as a shared library named as `libhal_mta.so`
 
 ## Variability Management
 
-Any new API introduced should be implemented by all the 3rd party module and RDK generic code should be compatible with specific version of HAL software
+Changes to the interface will be controlled by versioning, vendors will be expected to implement to a fixed version of the interface, and based on SLA agreements move to later versions as demand requires.
 
 Each API interface will be versioned using [Semantic Versioning 2.0.0](https://semver.org/), the vendor code will comply with a specific version of the interface.
 

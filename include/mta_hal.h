@@ -105,6 +105,7 @@
 
 #ifndef ANSC_IPV4_ADDRESS
 /*
+ * TODO:
  * While we're trying really hard to smooth the procedure of switch-over from IPv4 to IPv4, there
  * are many places where using the IP address as an integer for comparision and calculation is much
  * easier than array-based operation.
@@ -117,8 +118,9 @@
          }
 #endif
 
-/* dect */
-/*
+/* DECT */
+/* 
+ *  TODO: 
  *  DH  This is not the right place to place platform/HAL
  *      implementation specific definitions here.
  *      This kind of definitions belongs to hal.c, or another
@@ -149,6 +151,7 @@ typedef enum
  */
 
 /*
+ *  TODO:
  *  DH  This is also questionable why we have to define this kind of
  *      platform specific capacility in the hal header file
  */
@@ -170,14 +173,10 @@ _MTAMGMT_MTA_DECT
                                                                  Currently these values are set to 0 in the CCSP code. */
     ULONG                           DeregisterDectHandset;  /**< Information required for these parameters is unknown.
                                                                  Currently these values are set to 0 in the CCSP code. */
-    char                            HardwareVersion[64];    /**< Contains the DECT module hardware version.
-                                                                 Ensure it doesn't exceed a 64-byte buffer size. */
-    char                            RFPI[64];               /**< RFPI value of the DECT module from the EEPROM.
-                                                                 Ensure it doesn't exceed a 64-byte buffer size. */
-    char                            SoftwareVersion[64];    /**< Contains the DECT module software version.
-                                                                 Ensure it doesn't exceed a 64-byte buffer size. */
-    char                            PIN[64];                /**< Authentication PIN for base module(CMBS)<->handset communication.
-                                                                 Ensure it doesn't exceed a 64-byte buffer size. */
+    char                            HardwareVersion[64];    /**< Contains the DECT module hardware version. */
+    char                            RFPI[64];               /**< RFPI value of the DECT module from the EEPROM. */
+    char                            SoftwareVersion[64];    /**< Contains the DECT module software version. */
+    char                            PIN[64];                /**< Authentication PIN for base module(CMBS)<->handset communication. */
 }
 MTAMGMT_MTA_DECT, *PMTAMGMT_MTA_DECT;
 
@@ -191,16 +190,11 @@ _MTAMGMT_MTA_HANDSETS_INFO
 {
     ULONG                           InstanceNumber;         /**< Instance number of the MTA Handset */
     BOOLEAN                         Status;                 /**< Status of the MTA Handset */
-    char                            LastActiveTime[64];     /**< Last Active Time of the MTA Handset
-                                                                 Ensure it doesn't exceed a 64-byte buffer size. */
-    char                            HandsetName[64];        /**< Handset Name
-                                                                 Ensure it doesn't exceed a 64-byte buffer size. */
-    char                            HandsetFirmware[64];    /**< Handset version    
-                                                                 Ensure it doesn't exceed a 64-byte buffer size. */
-    char                            OperatingTN[64];        /**< Operating TN. At present only TN1 will be assigned to DECT phones.
-                                                                 Ensure it doesn't exceed a 64-byte buffer size. */
-    char                            SupportedTN[64];        /**< Supported TN. At present only TN1 will be assigned to DECT phones.
-                                                                 Ensure it doesn't exceed a 64-byte buffer size. */
+    char                            LastActiveTime[64];     /**< Last Active Time of the MTA Handset */
+    char                            HandsetName[64];        /**< Handset Name */
+    char                            HandsetFirmware[64];    /**< Handset version     */
+    char                            OperatingTN[64];        /**< Operating TN. At present only TN1 will be assigned to DECT phones. */
+    char                            SupportedTN[64];        /**< Supported TN. At present only TN1 will be assigned to DECT phones. */
 }
 MTAMGMT_MTA_HANDSETS_INFO,  *PMTAMGMT_MTA_HANDSETS_INFO;
 
@@ -216,10 +210,8 @@ _MTAMGMT_MTA_DHCP_INFO
                                                                      Dot - An unsigned character array of size 4.
                                                                      Value - A 32 bit unsigned integer value.
                                                                      The valid ranges for IPv4 addresses are: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
-    CHAR                            BootFileName[64];           /**< Represents the Boot File Name.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size.*/
-    CHAR                            FQDN[64];                   /**< Represents the fully qualified domain name.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size.*/
+    CHAR                            BootFileName[64];           /**< Represents the Boot File Name.*/
+    CHAR                            FQDN[64];                   /**< Represents the fully qualified domain name.*/
     ANSC_IPV4_ADDRESS               SubnetMask;                 /**< It is a ANSC_IPV4_ADDRESS union type value that represents the Subnet Mask.  The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
                                                                      Value - A 32 bit unsigned integer value.
@@ -229,10 +221,8 @@ _MTAMGMT_MTA_DHCP_INFO
                                                                      Value - A 32 bit unsigned integer value.
                                                                      The valid range is: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
     ULONG                           LeaseTimeRemaining;         /**< Represents the Lease Time Remaining. */
-    CHAR                            RebindTimeRemaining[64];    /**< Represents the Rebind Time Remaining.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            RenewTimeRemaining[64];     /**< Represents the Renew Time Remaining.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
+    CHAR                            RebindTimeRemaining[64];    /**< Represents the Rebind Time Remaining. */
+    CHAR                            RenewTimeRemaining[64];     /**< Represents the Renew Time Remaining. */
     ANSC_IPV4_ADDRESS               PrimaryDNS;                 /**< It is a ANSC_IPV4_ADDRESS union type value that represents the Primary DNS. The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
                                                                      Value - A 32 bit unsigned integer value.
@@ -241,18 +231,12 @@ _MTAMGMT_MTA_DHCP_INFO
                                                                      Dot - An unsigned character array of size 4.
                                                                      Value - A 32 bit unsigned integer value.
                                                                      The valid range is: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
-    CHAR                            DHCPOption3[64];            /**< DHCP Option 3. It is a 64 bytes character array that specifies the IP address of the default gateway(router) for the DHCP client to use for internet access and communication with devices outside the local network.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            DHCPOption6[64];            /**< DHCP Option 6. It is a 64 bytes character array that specifies the IP Address of a DNS servers that the DNS client should use for domain name resolution.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            DHCPOption7[64];            /**< DHCP Option 7. It is a 64 bytes character array that specifies the IP address of a log server that the DHCP client can use for logging purpose.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            DHCPOption8[64];            /**< DHCP Option 8. It is a 64 bytes character array that specifies the IP address of a cookie server that the DHCP client can use to retrieve cookies.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            PCVersion[64];              /**< PacketCable version. Example: "2.0"
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            MACAddress[64];             /**< The telephony IPv4 MAC address for this device
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
+    CHAR                            DHCPOption3[64];            /**< DHCP Option 3. It is a 64 bytes character array that specifies the IP address of the default gateway(router) for the DHCP client to use for internet access and communication with devices outside the local network. */
+    CHAR                            DHCPOption6[64];            /**< DHCP Option 6. It is a 64 bytes character array that specifies the IP Address of a DNS servers that the DNS client should use for domain name resolution. */
+    CHAR                            DHCPOption7[64];            /**< DHCP Option 7. It is a 64 bytes character array that specifies the IP address of a log server that the DHCP client can use for logging purpose. */
+    CHAR                            DHCPOption8[64];            /**< DHCP Option 8. It is a 64 bytes character array that specifies the IP address of a cookie server that the DHCP client can use to retrieve cookies. */
+    CHAR                            PCVersion[64];              /**< PacketCable version. Example: "2.0" */
+    CHAR                            MACAddress[64];             /**< The telephony IPv4 MAC address for this device */
     ANSC_IPV4_ADDRESS               PrimaryDHCPServer;          /**< It is a ANSC_IPV4_ADDRESS union type value that represents the Primary DHCP server. The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
                                                                      Value - A 32 bit unsigned integer value.
@@ -282,28 +266,20 @@ _MTAMGMT_MTA_DHCPv6_INFO
     CHAR                            Gateway[INET6_ADDRSTRLEN];                  /**< It is a 46 bytes character array that represents the Gateway.
                                                                                      The valid range is: 0000::/8, 2000::/3, FC00::/7, FE80::/10 and FF00::/8 */
     ULONG                           LeaseTimeRemaining;                         /**< Represents the Lease Time Remaining.*/
-    CHAR                            RebindTimeRemaining[64];                    /**< Represents the Rebind Time Remaining.
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            RenewTimeRemaining[64];                     /**< Represents the Renew Time Remaining.
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
+    CHAR                            RebindTimeRemaining[64];                    /**< Represents the Rebind Time Remaining.*/
+    CHAR                            RenewTimeRemaining[64];                     /**< Represents the Renew Time Remaining.*/
     CHAR                            PrimaryDNS[INET6_ADDRSTRLEN];               /**< It is a 46 bytes character array that represents the Primary DNS.
 *                                                                                    The valid range is: 0000::/8, 2000::/3, FC00::/7, FE80::/10 and FF00::/8 */
     CHAR                            SecondaryDNS[INET6_ADDRSTRLEN];             /**< It is a 46 bytes character array that represents the Secondary DNS.
 *                                                                                    The valid range is: 0000::/8, 2000::/3, FC00::/7, FE80::/10 and FF00::/8 */
     CHAR                            DHCPOption3[64];                            /**< DHCP Option 3. It is a 64 bytes character array that provides information about the IPv6 address prefix to be used by the client for autoconfiguration.
-                                                                                     The valid range is 1 to 128.
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
+                                                                                     The valid range is 1 to 128.*/
     CHAR                            DHCPOption6[64];                            /**< DHCP Option 6. It is a 64 bytes character array that supplies the IPv6 addresses of DNS servers that the DHCPv6 client should use for domain name resolution.
-                                                                                     The valid range is: 0000::/8, 2000::/3, FC00::/7, FE80::/10 and FF00::/8
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            DHCPOption7[64];                            /**< DHCP Option 7. It is a 64 bytes character array that provides a list of domain names that the DHCPv6 client can search when performing domain name resolution. It is vendor specific.
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            DHCPOption8[64];                            /**< DHCP Option 8. It is a 64 bytes character array that conveys the maximum transmission unit (MTU) for the client's network interface. It is vendor specific.
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            PCVersion[64];                              /**< Respresents the PacketCable version. Sample value: "2.0"
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            MACAddress[64];                             /**< The telephony IPv6 MAC address for this device
-                                                                                     Ensure it doesn't exceed a 64-byte buffer size. */
+                                                                                     The valid range is: 0000::/8, 2000::/3, FC00::/7, FE80::/10 and FF00::/8*/
+    CHAR                            DHCPOption7[64];                            /**< DHCP Option 7. It is a 64 bytes character array that provides a list of domain names that the DHCPv6 client can search when performing domain name resolution. It is vendor specific.*/
+    CHAR                            DHCPOption8[64];                            /**< DHCP Option 8. It is a 64 bytes character array that conveys the maximum transmission unit (MTU) for the client's network interface. It is vendor specific.*/
+    CHAR                            PCVersion[64];                              /**< Respresents the PacketCable version. Sample value: "2.0"*/
+    CHAR                            MACAddress[64];                             /**< The telephony IPv6 MAC address for this device*/
     CHAR                            PrimaryDHCPv6Server[INET6_ADDRSTRLEN];      /**< It is a 46 bytes character array that represents the Primary DHCPv6 server. It is a server-specific value. */
     CHAR                            SecondaryDHCPv6Server[INET6_ADDRSTRLEN];    /**< It is a 46 bytes character array that represents the Secondary DHCPv6 Server. It is a server-specific value. */
 }
@@ -318,12 +294,11 @@ typedef  struct
 _MTAMGMT_MTA_SERVICE_FLOW
 {
     ULONG                           SFID;                        /**< Service Flow Id */
-    CHAR                            ServiceClassName[256];       /**< Service Class Name
-                                                                      Ensure it doesn't exceed a 256-byte buffer size. */
+    CHAR                            ServiceClassName[256];       /**< Service Class Name*/
     CHAR                            Direction[16];               /**< MTA service Flow direction. Possible values are: Upstream, Downstream */
     ULONG                           ScheduleType;                /**< It is a unsigned long integer value that represents the MTA service Flow Schedule Type.  
                                                                       The value ranges from 0 to (2^32)-1. It is a vendor-specific value.*/
-    BOOLEAN                         DefaultFlow;                 /**< It is a boolean value that specifies the default flow of the Service Flow. The values: "{TRUE, FLASE}". */
+    BOOLEAN                         DefaultFlow;                 /**< It is a boolean value that specifies the default flow of the Service Flow. */
     ULONG                           NomGrantInterval;            /**< It is a unsigned long integer value that represents the Nominal Grant Interval. It is the the nominal interval in microseconds between successive data grant opportunities on an upstream Service Flow
                                                                       The value ranges from 0 to (2^32)-1. It is a vendor-specific value. */
     ULONG                           UnsolicitGrantSize;          /**< It is a unsigned long integer value that represents the Unsolicited Grant Size in bytes. 
@@ -340,8 +315,7 @@ _MTAMGMT_MTA_SERVICE_FLOW
                                                                       The value ranges from 0 to (2^32)-1. It is a vendor-specific value. */
     ULONG                           MaxTrafficBurst;             /**< It is a unsigned long integer value that represents the Maximum Traffic Burst in bytes. 
                                                                       The value ranges from 0 to (2^32)-1. It is a vendor-specific value. */
-    CHAR                            TrafficType[64];             /**< It is a 64-byte character array which represent whether the service flow is for SIP or RTP.
-                                                                      Ensure it doesn't exceed a 64-byte buffer size. */
+    CHAR                            TrafficType[64];             /**< It is a 64-byte character array which represent whether the service flow is for SIP or RTP. */
     ULONG                           NumberOfPackets;             /**< The number of packets of the Service Flow */
 }
 MTAMGMT_MTA_SERVICE_FLOW, *PMTAMGMT_MTA_SERVICE_FLOW;
@@ -354,138 +328,76 @@ MTAMGMT_MTA_SERVICE_FLOW, *PMTAMGMT_MTA_SERVICE_FLOW;
 typedef  struct
 _MTAMGMT_MTA_CALLS
 {
-    CHAR                            Codec[64];                                             /**< Local side codec used for the call. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            RemoteCodec[64];                                       /**< Remote side codec used for the call. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            CallStartTime[64];                                     /**< Start time of a call.  Example value: 2000-01-01.
-                                                                                                Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            CallEndTime[64];                                       /**< End time of a call. Example value: 2000-01-01.
-                                                                                                Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            CWErrorRate[MTA_HAL_SHORT_VALUE_LEN];                  /**< ratio of useful signal to background noise. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            PktLossConcealment[MTA_HAL_SHORT_VALUE_LEN];           /**< ratio of pkt lost to total expected. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    BOOLEAN                         JitterBufferAdaptive;                                  /**< JBA used or not. The values are: "{TRUE, FALSE}". */
-    BOOLEAN                         Originator;                                            /**< Originating side of the call or not . The values are: "{TRUE, FALSE}".*/
+    CHAR                            Codec[64];                                             /**< Local side codec used for the call. It is a vendor-specific value. */
+    CHAR                            RemoteCodec[64];                                       /**< Remote side codec used for the call. It is a vendor-specific value. */
+    CHAR                            CallStartTime[64];                                     /**< Start time of a call.  Example value: 2000-01-01. */
+    CHAR                            CallEndTime[64];                                       /**< End time of a call. Example value: 2000-01-01. */
+    CHAR                            CWErrorRate[MTA_HAL_SHORT_VALUE_LEN];                  /**< ratio of useful signal to background noise. It is a vendor-specific value.*/
+    CHAR                            PktLossConcealment[MTA_HAL_SHORT_VALUE_LEN];           /**< ratio of pkt lost to total expected. It is a vendor-specific value.*/
+    BOOLEAN                         JitterBufferAdaptive;                                  /**< JBA used or not. */
+    BOOLEAN                         Originator;                                            /**< Originating side of the call or not .*/
     ANSC_IPV4_ADDRESS               RemoteIPAddress;                                       /**< remote IP
                                                                                                 It is a ANSC_IPV4_ADDRESS union type value that represents the Primary DHCP server. The union members are defined as below:
                                                                                                      Dot - An unsigned character array of size 4.
                                                                                                      Value - A 32 bit unsigned integer value.
                                                                                                 The valid ranges for IPv4 addresses are: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0*/
     ULONG                           CallDuration;                                          /**< Length of the call in minutes. The value ranges from 0 to (2^32)-1. */
-    CHAR                            CWErrors[MTA_HAL_SHORT_VALUE_LEN];                     /**< Code word errors on this channel. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            SNR[MTA_HAL_SHORT_VALUE_LEN];                          /**< Signal to noise ratio * 256. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            MicroReflections[MTA_HAL_SHORT_VALUE_LEN];             /**< Return loss measurement. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            DownstreamPower[MTA_HAL_SHORT_VALUE_LEN];              /**< downstream power in dbmv. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            UpstreamPower[MTA_HAL_SHORT_VALUE_LEN];                /**< upstream power in dbmv. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            EQIAverage[MTA_HAL_SHORT_VALUE_LEN];                   /**< EQI average. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            EQIMinimum[MTA_HAL_SHORT_VALUE_LEN];                   /**< EQI minimum. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            EQIMaximum[MTA_HAL_SHORT_VALUE_LEN];                   /**< EQI maximum. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            EQIInstantaneous[MTA_HAL_SHORT_VALUE_LEN];             /**< EQI instantaneous. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            MOS_LQ[MTA_HAL_SHORT_VALUE_LEN];                       /**< mean opinion score of listening quality. It ranges between 10-50
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            MOS_CQ[MTA_HAL_SHORT_VALUE_LEN];                       /**< mean opinion score of conversational quality. It ranges between 10-50
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            EchoReturnLoss[MTA_HAL_SHORT_VALUE_LEN];               /**< residual echo return loss, in db. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            SignalLevel[MTA_HAL_SHORT_VALUE_LEN];                  /**< voice signal relative level, in db. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            NoiseLevel[MTA_HAL_SHORT_VALUE_LEN];                   /**< noise relative level, in db. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            LossRate[MTA_HAL_SHORT_VALUE_LEN];                     /**< fraction of RTP data packet loss * 256. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            DiscardRate[MTA_HAL_SHORT_VALUE_LEN];                  /**< fraction of RTP data packet discarded * 256. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            BurstDensity[MTA_HAL_SHORT_VALUE_LEN];                 /**< fraction of bursting data packet * 256. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            GapDensity[MTA_HAL_SHORT_VALUE_LEN];                   /**< fraction of packets within inter-burst gap * 256. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            BurstDuration[MTA_HAL_SHORT_VALUE_LEN];                /**< mean duration of bursts, in milliseconds. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            GapDuration[MTA_HAL_SHORT_VALUE_LEN];                  /**< mean duration of gaps, in milliseconds. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RoundTripDelay[MTA_HAL_SHORT_VALUE_LEN];               /**< most recent measured RTD, in milliseconds. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            Gmin[MTA_HAL_SHORT_VALUE_LEN];                         /**< local gap threshold. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RFactor[MTA_HAL_SHORT_VALUE_LEN];                      /**< voice quality evaluation for this RTP session. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            ExternalRFactor[MTA_HAL_SHORT_VALUE_LEN];              /**< voice quality evaluation for segment on network external to this RTP session. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            JitterBufRate[MTA_HAL_SHORT_VALUE_LEN];                /**< adjustment rate of jitter buffer, in milliseconds. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            JBNominalDelay[MTA_HAL_SHORT_VALUE_LEN];               /**< nominal jitter buffer length, in milliseconds. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            JBMaxDelay[MTA_HAL_SHORT_VALUE_LEN];                   /**< maximum jitter buffer length, in milliseconds. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            JBAbsMaxDelay[MTA_HAL_SHORT_VALUE_LEN];                /**< absolute maximum delay, in milliseconds. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            TxPackets[MTA_HAL_SHORT_VALUE_LEN];                    /**< count of transmitted packets. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            TxOctets[MTA_HAL_SHORT_VALUE_LEN];                     /**< count of transmitted octet packets. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RxPackets[MTA_HAL_SHORT_VALUE_LEN];                    /**< count of received packets. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RxOctets[MTA_HAL_SHORT_VALUE_LEN];                     /**< count of received octet packets. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            PacketLoss[MTA_HAL_SHORT_VALUE_LEN];                   /**< count of lost packets. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            IntervalJitter[MTA_HAL_SHORT_VALUE_LEN];               /**< stat variance of packet interarrival time, in milliseconds. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteIntervalJitter[MTA_HAL_SHORT_VALUE_LEN];         /**< remote sie IntervalJitter. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteMOS_LQ[MTA_HAL_SHORT_VALUE_LEN];                 /**< remote side MOS_LQ. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteMOS_CQ[MTA_HAL_SHORT_VALUE_LEN];                 /**< remote side MOS_CQ. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteEchoReturnLoss[MTA_HAL_SHORT_VALUE_LEN];         /**< remote side EchoReturnLoss. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteSignalLevel[MTA_HAL_SHORT_VALUE_LEN];            /**< remote side SignalLevel. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteNoiseLevel[MTA_HAL_SHORT_VALUE_LEN];             /**< remote side NoiseLevel. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteLossRate[MTA_HAL_SHORT_VALUE_LEN];               /**< remote side LossRate. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemotePktLossConcealment[MTA_HAL_SHORT_VALUE_LEN];     /**< remote side PktLossConcealment. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteDiscardRate[MTA_HAL_SHORT_VALUE_LEN];            /**< remote side DiscardRate. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteBurstDensity[MTA_HAL_SHORT_VALUE_LEN];           /**< remote side BurstDensity. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteGapDensity[MTA_HAL_SHORT_VALUE_LEN];             /**< remote side GapDensity. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteBurstDuration[MTA_HAL_SHORT_VALUE_LEN];          /**< remote side BurstDuration. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteGapDuration[MTA_HAL_SHORT_VALUE_LEN];            /**< remote side GapDuration. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteRoundTripDelay[MTA_HAL_SHORT_VALUE_LEN];         /**< remote side RoundTripDelay. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteGmin[MTA_HAL_SHORT_VALUE_LEN];                   /**< remote side Gmin. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteRFactor[MTA_HAL_SHORT_VALUE_LEN];                /**< remote side RFactore. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteExternalRFactor[MTA_HAL_SHORT_VALUE_LEN];        /**< remote side ExternalRFactor. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    BOOLEAN                         RemoteJitterBufferAdaptive;                            /**< remote side JitterBufferAdaptive. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteJitterBufRate[MTA_HAL_SHORT_VALUE_LEN];          /**< remote side JitterBufRate. It is a vendor-specific value.
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteJBNominalDelay[MTA_HAL_SHORT_VALUE_LEN];         /**< remote side JBNominalDelay. It is a vendor-specific value.s
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteJBMaxDelay[MTA_HAL_SHORT_VALUE_LEN];             /**< remote side JBMaxDelay. It is a vendor-specific value.s
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
-    CHAR                            RemoteJBAbsMaxDelay[MTA_HAL_SHORT_VALUE_LEN];          /**< remote side JBAbsMaxDelay. It is a vendor-specific value.s
-                                                                                                Ensure it doesn't exceed a 16-byte buffer size. */
+    CHAR                            CWErrors[MTA_HAL_SHORT_VALUE_LEN];                     /**< Code word errors on this channel. It is a vendor-specific value.*/
+    CHAR                            SNR[MTA_HAL_SHORT_VALUE_LEN];                          /**< Signal to noise ratio * 256. It is a vendor-specific value.*/
+    CHAR                            MicroReflections[MTA_HAL_SHORT_VALUE_LEN];             /**< Return loss measurement. It is a vendor-specific value.*/
+    CHAR                            DownstreamPower[MTA_HAL_SHORT_VALUE_LEN];              /**< downstream power in dbmv. It is a vendor-specific value.*/
+    CHAR                            UpstreamPower[MTA_HAL_SHORT_VALUE_LEN];                /**< upstream power in dbmv. It is a vendor-specific value.*/
+    CHAR                            EQIAverage[MTA_HAL_SHORT_VALUE_LEN];                   /**< EQI average. It is a vendor-specific value.*/
+    CHAR                            EQIMinimum[MTA_HAL_SHORT_VALUE_LEN];                   /**< EQI minimum. It is a vendor-specific value.*/
+    CHAR                            EQIMaximum[MTA_HAL_SHORT_VALUE_LEN];                   /**< EQI maximum. It is a vendor-specific value.*/
+    CHAR                            EQIInstantaneous[MTA_HAL_SHORT_VALUE_LEN];             /**< EQI instantaneous. It is a vendor-specific value. */
+    CHAR                            MOS_LQ[MTA_HAL_SHORT_VALUE_LEN];                       /**< mean opinion score of listening quality. It ranges between 10-50. */
+    CHAR                            MOS_CQ[MTA_HAL_SHORT_VALUE_LEN];                       /**< mean opinion score of conversational quality. It ranges between 10-50. */
+    CHAR                            EchoReturnLoss[MTA_HAL_SHORT_VALUE_LEN];               /**< residual echo return loss, in db. It is a vendor-specific value. */
+    CHAR                            SignalLevel[MTA_HAL_SHORT_VALUE_LEN];                  /**< voice signal relative level, in db. It is a vendor-specific value. */
+    CHAR                            NoiseLevel[MTA_HAL_SHORT_VALUE_LEN];                   /**< noise relative level, in db. It is a vendor-specific value. */
+    CHAR                            LossRate[MTA_HAL_SHORT_VALUE_LEN];                     /**< fraction of RTP data packet loss * 256. It is a vendor-specific value. */
+    CHAR                            DiscardRate[MTA_HAL_SHORT_VALUE_LEN];                  /**< fraction of RTP data packet discarded * 256. It is a vendor-specific value. */
+    CHAR                            BurstDensity[MTA_HAL_SHORT_VALUE_LEN];                 /**< fraction of bursting data packet * 256. It is a vendor-specific value. */
+    CHAR                            GapDensity[MTA_HAL_SHORT_VALUE_LEN];                   /**< fraction of packets within inter-burst gap * 256. It is a vendor-specific value. */
+    CHAR                            BurstDuration[MTA_HAL_SHORT_VALUE_LEN];                /**< mean duration of bursts, in milliseconds. It is a vendor-specific value. */
+    CHAR                            GapDuration[MTA_HAL_SHORT_VALUE_LEN];                  /**< mean duration of gaps, in milliseconds. It is a vendor-specific value. */
+    CHAR                            RoundTripDelay[MTA_HAL_SHORT_VALUE_LEN];               /**< most recent measured RTD, in milliseconds. It is a vendor-specific value. */
+    CHAR                            Gmin[MTA_HAL_SHORT_VALUE_LEN];                         /**< local gap threshold. It is a vendor-specific value. */
+    CHAR                            RFactor[MTA_HAL_SHORT_VALUE_LEN];                      /**< voice quality evaluation for this RTP session. It is a vendor-specific value. */
+    CHAR                            ExternalRFactor[MTA_HAL_SHORT_VALUE_LEN];              /**< voice quality evaluation for segment on network external to this RTP session. It is a vendor-specific value. */
+    CHAR                            JitterBufRate[MTA_HAL_SHORT_VALUE_LEN];                /**< adjustment rate of jitter buffer, in milliseconds. It is a vendor-specific value. */
+    CHAR                            JBNominalDelay[MTA_HAL_SHORT_VALUE_LEN];               /**< nominal jitter buffer length, in milliseconds. It is a vendor-specific value. */
+    CHAR                            JBMaxDelay[MTA_HAL_SHORT_VALUE_LEN];                   /**< maximum jitter buffer length, in milliseconds. It is a vendor-specific value. */
+    CHAR                            JBAbsMaxDelay[MTA_HAL_SHORT_VALUE_LEN];                /**< absolute maximum delay, in milliseconds. It is a vendor-specific value. */
+    CHAR                            TxPackets[MTA_HAL_SHORT_VALUE_LEN];                    /**< count of transmitted packets. It is a vendor-specific value. */
+    CHAR                            TxOctets[MTA_HAL_SHORT_VALUE_LEN];                     /**< count of transmitted octet packets. It is a vendor-specific value. */
+    CHAR                            RxPackets[MTA_HAL_SHORT_VALUE_LEN];                    /**< count of received packets. It is a vendor-specific value. */
+    CHAR                            RxOctets[MTA_HAL_SHORT_VALUE_LEN];                     /**< count of received octet packets. It is a vendor-specific value. */
+    CHAR                            PacketLoss[MTA_HAL_SHORT_VALUE_LEN];                   /**< count of lost packets. It is a vendor-specific value. */
+    CHAR                            IntervalJitter[MTA_HAL_SHORT_VALUE_LEN];               /**< stat variance of packet interarrival time, in milliseconds. It is a vendor-specific value. */
+    CHAR                            RemoteIntervalJitter[MTA_HAL_SHORT_VALUE_LEN];         /**< remote sie IntervalJitter. It is a vendor-specific value. */
+    CHAR                            RemoteMOS_LQ[MTA_HAL_SHORT_VALUE_LEN];                 /**< remote side MOS_LQ. It is a vendor-specific value. */
+    CHAR                            RemoteMOS_CQ[MTA_HAL_SHORT_VALUE_LEN];                 /**< remote side MOS_CQ. It is a vendor-specific value. */
+    CHAR                            RemoteEchoReturnLoss[MTA_HAL_SHORT_VALUE_LEN];         /**< remote side EchoReturnLoss. It is a vendor-specific value. */
+    CHAR                            RemoteSignalLevel[MTA_HAL_SHORT_VALUE_LEN];            /**< remote side SignalLevel. It is a vendor-specific value. */
+    CHAR                            RemoteNoiseLevel[MTA_HAL_SHORT_VALUE_LEN];             /**< remote side NoiseLevel. It is a vendor-specific value. */
+    CHAR                            RemoteLossRate[MTA_HAL_SHORT_VALUE_LEN];               /**< remote side LossRate. It is a vendor-specific value. */
+    CHAR                            RemotePktLossConcealment[MTA_HAL_SHORT_VALUE_LEN];     /**< remote side PktLossConcealment. It is a vendor-specific value. */
+    CHAR                            RemoteDiscardRate[MTA_HAL_SHORT_VALUE_LEN];            /**< remote side DiscardRate. It is a vendor-specific value. */
+    CHAR                            RemoteBurstDensity[MTA_HAL_SHORT_VALUE_LEN];           /**< remote side BurstDensity. It is a vendor-specific value. */
+    CHAR                            RemoteGapDensity[MTA_HAL_SHORT_VALUE_LEN];             /**< remote side GapDensity. It is a vendor-specific value. */
+    CHAR                            RemoteBurstDuration[MTA_HAL_SHORT_VALUE_LEN];          /**< remote side BurstDuration. It is a vendor-specific value. */
+    CHAR                            RemoteGapDuration[MTA_HAL_SHORT_VALUE_LEN];            /**< remote side GapDuration. It is a vendor-specific value. */
+    CHAR                            RemoteRoundTripDelay[MTA_HAL_SHORT_VALUE_LEN];         /**< remote side RoundTripDelay. It is a vendor-specific value. */
+    CHAR                            RemoteGmin[MTA_HAL_SHORT_VALUE_LEN];                   /**< remote side Gmin. It is a vendor-specific value. */
+    CHAR                            RemoteRFactor[MTA_HAL_SHORT_VALUE_LEN];                /**< remote side RFactore. It is a vendor-specific value. */
+    CHAR                            RemoteExternalRFactor[MTA_HAL_SHORT_VALUE_LEN];        /**< remote side ExternalRFactor. It is a vendor-specific value. */
+    BOOLEAN                         RemoteJitterBufferAdaptive;                            /**< remote side JitterBufferAdaptive. It is a vendor-specific value. */
+    CHAR                            RemoteJitterBufRate[MTA_HAL_SHORT_VALUE_LEN];          /**< remote side JitterBufRate. It is a vendor-specific value. */
+    CHAR                            RemoteJBNominalDelay[MTA_HAL_SHORT_VALUE_LEN];         /**< remote side JBNominalDelay. It is a vendor-specific value. */
+    CHAR                            RemoteJBMaxDelay[MTA_HAL_SHORT_VALUE_LEN];             /**< remote side JBMaxDelay. It is a vendor-specific value. */
+    CHAR                            RemoteJBAbsMaxDelay[MTA_HAL_SHORT_VALUE_LEN];          /**< remote side JBAbsMaxDelay. It is a vendor-specific value. */
 }
 MTAMGMT_MTA_CALLS, *PMTAMGMT_MTA_CALLS;
 
@@ -501,17 +413,17 @@ _MTAMGMT_MTA_LINETABLE_INFO
     ULONG                           LineNumber;                 /**< It is a unsigned long integer value that represents the line number. The value ranges from 0 to (2^32)-1. */
     ULONG                           Status;                     /**< It is a unsigned long integer value that defines the status. The value ranges from 0 to (2^32)-1. Possible Values: 1 = OnHook; 2 = OffHook */
     CHAR                            HazardousPotential[128];    /**< It is a character array that represents the Hazardous potential.
-                                                                     Ensure it doesn't exceed a 128-byte buffer size. It is a vendor-specific value. Possible Values: HEMF Test Passed, HEMF Test Failed, Not Started */
+                                                                     It is a vendor-specific value. Possible Values: HEMF Test Passed, HEMF Test Failed, Not Started */
     CHAR                            ForeignEMF[128];            /**< It is a character array that represents the foreign EMF.
-                                                                     Ensure it doesn't exceed a 128-byte buffer size. It is a vendor-specific value. Possible Values: FEMF Test Passed, FEMF Test Failed, Not Started */
+                                                                     It is a vendor-specific value. Possible Values: FEMF Test Passed, FEMF Test Failed, Not Started */
     CHAR                            ResistiveFaults[128];       /**< It is a character array that represents the resistive faults.
-                                                                     Ensure it doesn't exceed a 128-byte buffer size. It is a vendor-specific value. Possible Values: ResistiveFaults Test Passed, ResistiveFaults Test Failed, Not Started */
+                                                                     It is a vendor-specific value. Possible Values: ResistiveFaults Test Passed, ResistiveFaults Test Failed, Not Started */
     CHAR                            ReceiverOffHook[128];       /**< It is a character array that represents the receiver off hook.
-                                                                     Ensure it doesn't exceed a 128-byte buffer size. It is a vendor-specific value. Possible Values: Off Hook Simulation Test Passed, Off Hook Simulation Test Failed, Not Started */
+                                                                     It is a vendor-specific value. Possible Values: Off Hook Simulation Test Passed, Off Hook Simulation Test Failed, Not Started */
     CHAR                            RingerEquivalency[64];      /**< It is a character array that represents the Ringer equivalency.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. It is a vendor-specific value. Possible Values: Ringer Equivalency Test Passed, Ringer Equivalency Test Failed, Not Started */
+                                                                     It is a vendor-specific value. Possible Values: Ringer Equivalency Test Passed, Ringer Equivalency Test Failed, Not Started */
     CHAR                            CAName[64];                 /**< It is a character array that represents the CA name.
-                                                                     Ensure it doesn't exceed a 64-byte buffer size. It is a vendor-specific value. */
+                                                                     It is a vendor-specific value. */
     ULONG                           CAPort;                     /**< It is a unsigned long integer value that represents the CA port. The value ranges from 0 to (2^32)-1. */
     ULONG                           MWD;                        /**< It is a unsigned long integer value that represents the MWD. The value ranges from 0 to (2^32)-1. It is a vendor-specific value. */
     ULONG                           CallsNumber;                /**< It is a unsigned long integer value that represents the calls number. The value ranges from 0 to (2^32)-1. It is a vendor-specific value. */
@@ -522,7 +434,7 @@ _MTAMGMT_MTA_LINETABLE_INFO
 MTAMGMT_MTA_LINETABLE_INFO, *PMTAMGMT_MTA_LINETABLE_INFO;
 
 /**
- * @brief Structure to hold the CallP information.
+ * @brief Structure to hold the Call processing information.
  * @note Ensure that any value specified does not exceed the buffer size
  * limit defined.
  */
@@ -530,11 +442,11 @@ typedef  struct
 _MTAMGMT_MTA_CALLP
 {
     CHAR                            LCState[64];                  /**< It is a character array that represents the LC State.
-                                                                       Ensure it doesn't exceed a 64-byte buffer size. The value is: In Use, Idle, Out of Service */
-    CHAR                            CallPState[64];               /**< It is a character array that represents the callpstate.
-                                                                       Ensure it doesn't exceed a 64-byte buffer size. The value is: In Service, OOS. */
+                                                                       The value is: In Use, Idle, Out of Service */
+    CHAR                            CallPState[64];               /**< It is a character array that represents the Call processing state.
+                                                                       The value is: In Service, OOS. */
     CHAR                            LoopCurrent[64];              /**< It is a character array that represents the boosted loop current status.
-                                                                       Ensure it doesn't exceed a 64-byte buffer size. The value is: Normal, Boosted */
+                                                                       The value is: Normal, Boosted */
 }
 MTAMGMT_MTA_CALLP,  *PMTAMGMT_MTA_CALLP;
 
@@ -547,9 +459,9 @@ typedef  struct
 _MTAMGMT_MTA_DSXLOG
 {
     CHAR                            Time[64];           /**< It is a character array that represents the time.
-                                                             Ensure it doesn't exceed a 64-byte buffer size. It is vendor specific. */
+                                                             It is vendor specific. */
     CHAR                            Description[128];   /**< It is a character array that represents the log description.
-                                                             Ensure it doesn't exceed a 128-byte buffer size. It is a vendor-specific value. */
+                                                             It is a vendor-specific value. */
     ULONG                           ID;                 /**< It is a unsigned long integer value that represents the ID.
                                                              The range is 0 to the (2^32)-1. It is a vendor-specific value. */
     ULONG                           Level;              /**< It is a unsigned long integer value that represents the log level.
@@ -567,10 +479,8 @@ _MTAMGMT_MTA_MTALOG_FULL
 {
     ULONG                           Index;              /**< It is a unsigned long integer value that represents the Index. The range is 0 to the (2^32)-1. Sample values are 1,2. */
     ULONG                           EventID;            /**< It is a unsigned long integer value that represents the eventID. The range is 0 to the (2^32)-1. Sample value are 1,2. */
-    CHAR                            EventLevel[64];     /**< It is a 64 bytes character array that represents the event level. Sample are "1","2".
-                                                             Ensure it doesn't exceed a 64-byte buffer size. */
-    CHAR                            Time[64];           /**< It is a 64 bytes character array that represents the time. Example value is: "1998-05-14",
-                                                             Ensure it doesn't exceed a 64-byte buffer size. */
+    CHAR                            EventLevel[64];     /**< It is a 64 bytes character array that represents the event level. Sample are "1","2".*/
+    CHAR                            Time[64];           /**< It is a 64 bytes character array that represents the time. Example value is: "1998-05-14".*/
     CHAR*                           pDescription;       /**< It is a character pointer to buffer that holds the log description. Sample values are: "this is a log for matLog1", "this is a log for matLog2". */
 }
 MTAMGMT_MTA_MTALOG_FULL,  *PMTAMGMT_MTA_MTALOG_FULL;
@@ -584,13 +494,13 @@ typedef  struct
 _MTAMGMT_MTA_BATTERY_INFO
 {
     CHAR                            ModelNumber[32];                /**< Character array that represents the Battery Model Number.
-                                                                         Ensure it doesn't exceed a 32-byte buffer size. It is vendor specific. */
+                                                                         It is vendor specific. */
     CHAR                            SerialNumber[32];               /**< Character array that represents the Battery Serial Number.
-                                                                         Ensure it doesn't exceed a 32-byte buffer size. It is vendor specific. */
+                                                                         It is vendor specific. */
     CHAR                            PartNumber[32];                 /**< Character array that represents the Battery Part Number.
-                                                                         Ensure it doesn't exceed a 32-byte buffer size. It is vendor specific. */
+                                                                         It is vendor specific. */
     CHAR                            ChargerFirmwareRevision[32];    /**< Character array that represents the Charger Firmware Revision.
-                                                                         Ensure it doesn't exceed a 32-byte buffer size. It is vendor specific. */
+                                                                         It is vendor specific. */
 }
 MTAMGMT_MTA_BATTERY_INFO,  *PMTAMGMT_MTA_BATTERY_INFO;
 
@@ -636,6 +546,16 @@ typedef enum{
  *
 **********************************************************************************/
 
+/*
+ * TODO:
+ *
+ * 1. Extend the return codes by listing out the possible reasons of failure, to improve the interface in the future.
+ *    This was reported during the review for header file migration to opensource github.
+ * 2. Add return error cases for battery related functions with and without battery present.
+ * 3. Plan to split the header files based on purpose of the APIs, for example, DHCP, battery etc.
+ *
+ */
+
 /**
 * @brief Retrieves the global information for all shared DBs and makes them accessible locally.
 *
@@ -644,9 +564,6 @@ typedef enum{
 * @retval RETURN_ERR if any error is detected
 *
 
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT   mta_hal_InitDB(void);
@@ -660,9 +577,6 @@ INT   mta_hal_InitDB(void);
 * @retval RETURN_ERR if any error is detected
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_GetDHCPInfo(PMTAMGMT_MTA_DHCP_INFO pInfo);
 
@@ -675,9 +589,6 @@ INT mta_hal_GetDHCPInfo(PMTAMGMT_MTA_DHCP_INFO pInfo);
 * @retval RETURN_ERR if any error is detected
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 
 INT mta_hal_GetDHCPV6Info(PMTAMGMT_MTA_DHCPv6_INFO pInfo);
@@ -689,9 +600,6 @@ INT mta_hal_GetDHCPV6Info(PMTAMGMT_MTA_DHCPv6_INFO pInfo);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 ULONG mta_hal_LineTableGetNumberOfEntries(void);
@@ -706,9 +614,6 @@ ULONG mta_hal_LineTableGetNumberOfEntries(void);
 * @retval RETURN_ERR if any error is detected
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT   mta_hal_LineTableGetEntry(ULONG Index, PMTAMGMT_MTA_LINETABLE_INFO pEntry);
 
@@ -720,9 +625,6 @@ INT   mta_hal_LineTableGetEntry(ULONG Index, PMTAMGMT_MTA_LINETABLE_INFO pEntry)
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT   mta_hal_TriggerDiagnostics(ULONG Index);
@@ -736,111 +638,81 @@ INT   mta_hal_TriggerDiagnostics(ULONG Index);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT   mta_hal_GetServiceFlow(ULONG* Count, PMTAMGMT_MTA_SERVICE_FLOW *ppCfg);
 
 /**
-* @brief Get info on if Dect is enabled
-* @param[out] pBool - It is a boolean pointer of 1 byte size, that stores the value for Dect enable, to be returned. The values are: "TRUE", "FALSE".
+* @brief Get info on if DECT(Digital Enhanced Cordless Telecommunications) is enabled
+* @param[out] pBool - It is a boolean pointer of 1 byte size, that stores the value for DECT enable, to be returned.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT   mta_hal_DectGetEnable(BOOLEAN *pBool);
 
 /**
-* @brief Set Dect according to the boolean value passed
-* @param[in] bBool - It is a boolean variable of 1 byte size, that contains value for Dect enabled or not, to be set. The values are: "TRUE", "FALSE".
+* @brief Set DECT according to the boolean value passed
+* @param[in] bBool - It is a boolean variable of 1 byte size, that contains value for DECT enabled or not, to be set.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_DectSetEnable(BOOLEAN bBool);
 
 /**
-* @brief Get Dect registration mode, whether enabled or not.
-* @param[out] pBool - It is a boolean pointer of 1 byte size, that stores the value of Dect enabled or not, to be returned. The values are: "TRUE", "FALSE".
+* @brief Get DECT registration mode, whether enabled or not.
+* @param[out] pBool - It is a boolean pointer of 1 byte size, that stores the value of DECT enabled or not, to be returned.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_DectGetRegistrationMode(BOOLEAN* pBool);
 
 /**
-* @brief Set Dect registration mode according to the boolean value passed.
-* @param[in] bBool - It is a boolean pointer of 1 byte size, for enabled or not. The values are: "TRUE","FALSE".
+* @brief Set DECT registration mode according to the boolean value passed.
+* @param[in] bBool - It is a boolean pointer of 1 byte size, for enabled or not.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_DectSetRegistrationMode(BOOLEAN bBool);
 
 /**
-* @brief Deregister Dect Handset
-* @param[in] uValue - unsigned long pointer value for deregister dect handset. The value ranges from 0 to 4294967295. It is a vendor-specific value.
+* @brief Deregister DECT Handset
+* @param[in] uValue - unsigned long pointer value for deregister DECT handset. The value ranges from 0 to 4294967295. It is a vendor-specific value.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_DectDeregisterDectHandset(ULONG uValue);
 
 /**
-* @brief  Get Dect info
-* @param[out] pDect - info of Dect. pDect is a pointer to structure PMTAMGMT_MTA_DECT.
+* @brief  Get DECT info
+* @param[out] pDect - Info of DECT. pDect is a pointer to structure PMTAMGMT_MTA_DECT.
 *                                        \n The structure members are defined as below:
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_GetDect(PMTAMGMT_MTA_DECT pDect);
 
 /**
-* @brief get Dect PIN
+* @brief get DECT PIN
 * @param[out] pPINString - It is a 128 bytes of character pointer that provides PIN value.
 *                          \n It is a zero-terminated string.
 *
@@ -848,17 +720,11 @@ INT mta_hal_GetDect(PMTAMGMT_MTA_DECT pDect);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_GetDectPIN(char* pPINString);
 
 /**
-* @brief Set Dect PIN using the provided PIN string.
+* @brief Set DECT PIN using the provided PIN string.
 * @param[in] pPINString - It is a 128 bytes character pointer that provides DECT PIN value.
 *                         \n It is a zero-terminated string.
 *
@@ -866,9 +732,6 @@ INT mta_hal_GetDectPIN(char* pPINString);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_SetDectPIN(char* pPINString);
@@ -880,12 +743,6 @@ INT mta_hal_SetDectPIN(char* pPINString);
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_GetHandsets(ULONG* pulCount, PMTAMGMT_MTA_HANDSETS_INFO* ppHandsets);
@@ -900,28 +757,19 @@ INT mta_hal_GetHandsets(ULONG* pulCount, PMTAMGMT_MTA_HANDSETS_INFO* ppHandsets)
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT   mta_hal_GetCalls(ULONG InstanceNumber, ULONG *Count, PMTAMGMT_MTA_CALLS *ppCfg);
 
 /**
-* @brief Retrieve the CALLP status info for the line number
-* @param[in]  LineNumber - Unsigned long integer that provides Line number for which to retrieve info on CALLP status.
-* @param[out]  pCallp - CallP info, to be returned.
+* @brief Retrieve the Call processing status info for the line number
+* @param[in]  LineNumber - Unsigned long integer that provides Line number for which to retrieve info on Call processing status.
+* @param[out]  pCallp - Call processing info, to be returned.
 
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT   mta_hal_GetCALLP(ULONG LineNumber, PMTAMGMT_MTA_CALLP pCallp);
@@ -935,76 +783,52 @@ INT   mta_hal_GetCALLP(ULONG LineNumber, PMTAMGMT_MTA_CALLP pCallp);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT   mta_hal_GetDSXLogs(ULONG *Count, PMTAMGMT_MTA_DSXLOG *ppDSXLog);
 
 /**
 * @brief Get DSX log enable status
-* @param[out] pBool - It is a boolean pointer of 1 byte size, pointing to the value of enable, to be returned. The values are: "TRUE", "FALSE".
+* @param[out] pBool - It is a boolean pointer of 1 byte size, pointing to the value of enable, to be returned.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT   mta_hal_GetDSXLogEnable(BOOLEAN *pBool);
 
 /**
 * @brief Set value of DSX log enable to the value passed.
-* @param[in] Bool - It is a boolean variable with 1 byte size, containing the value to set DSX log enable to. The values are: "TRUE", "FALSE".
+* @param[in] Bool - It is a boolean variable with 1 byte size, containing the value to set DSX log enable to.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT   mta_hal_SetDSXLogEnable(BOOLEAN Bool);
 
 
 /**
-* @brief Set the value of ClearDSXLog to the value passed.
-* @param[in] Bool - It is a boolean variable with 1 byte size, containing the value to set clear DSX log to. The values are: "TRUE", "FALSE".
+* @brief Clear DSX logs based on the value passed.
+* @param[in] Bool - It is a boolean variable with 1 byte size, containing the value indicating whether clearDSXlog should enabled or disabled.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_ClearDSXLog(BOOLEAN Bool) ;
 
 /**
 * @brief Get the value of if CallSignalling log is enabled
-* @param[out] pBool - It is a boolean pointer with 1 byte size, pointing to the value of enable, to be returned. The values are: "TRUE", "FALSE".
+* @param[out] pBool - It is a boolean pointer with 1 byte size, pointing to the value of enable, to be returned.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 
@@ -1012,15 +836,12 @@ INT mta_hal_GetCallSignallingLogEnable(BOOLEAN *pBool) ;
 
 /**
 * @brief Set value of CallSignalling enable to the value passed.
-* @param[in] Bool - It is a boolean variable with 1 byte size, holding the value to set CallSignalling log enable to. The values are: "TRUE", "FALSE".
+* @param[in] Bool - It is a boolean variable with 1 byte size, holding the value to set CallSignalling log enable to.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 
@@ -1028,16 +849,13 @@ INT mta_hal_SetCallSignallingLogEnable(BOOLEAN Bool) ;
 
 
 /**
-* @brief Set value of clear CallSignalling log to the value passed.
-* @param[in] Bool - It is a boolean variable with 1 byte size, containing the value to set clear CallSignalling log to. The values are: "TRUE", "FALSE".
+* @brief Clear CallSignalling log based on the value passed.
+* @param[in] Bool - It is a boolean variable with 1 byte size, containing the value indicating whether clear CallSignalling log should enabled or disabled.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
-* @retval RETURN_ERR if any error is detected
+* @retval RETURN_ERR if any error is detected.
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 
@@ -1052,29 +870,16 @@ INT mta_hal_ClearCallSignallingLog(BOOLEAN Bool) ;
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_GetMtaLog(ULONG *Count, PMTAMGMT_MTA_MTALOG_FULL *ppCfg);
 
 /**
 * @brief Check to see if the battery is installed
 * @param[out] Val - It is a boolean pointer with 1 byte size, which holds the value to be returned.
-*                   \n The values are: "TRUE", "FALSE".
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_BatteryGetInstalled(BOOLEAN* Val);
@@ -1087,12 +892,6 @@ INT mta_hal_BatteryGetInstalled(BOOLEAN* Val);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_BatteryGetTotalCapacity(ULONG* Val);
 
@@ -1103,12 +902,6 @@ INT mta_hal_BatteryGetTotalCapacity(ULONG* Val);
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_BatteryGetActualCapacity(ULONG* Val);
@@ -1121,12 +914,6 @@ INT mta_hal_BatteryGetActualCapacity(ULONG* Val);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_BatteryGetRemainingCharge(ULONG* Val);
 
@@ -1138,12 +925,6 @@ INT mta_hal_BatteryGetRemainingCharge(ULONG* Val);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_BatteryGetRemainingTime(ULONG* Val);
 
@@ -1154,12 +935,6 @@ INT mta_hal_BatteryGetRemainingTime(ULONG* Val);
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_BatteryGetNumberofCycles(ULONG* Val);
@@ -1174,12 +949,6 @@ INT mta_hal_BatteryGetNumberofCycles(ULONG* Val);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_BatteryGetPowerStatus(CHAR *Val, ULONG *len);
 
@@ -1192,12 +961,6 @@ INT mta_hal_BatteryGetPowerStatus(CHAR *Val, ULONG *len);
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_BatteryGetCondition(CHAR *Val, ULONG *len);
@@ -1213,12 +976,6 @@ INT mta_hal_BatteryGetCondition(CHAR *Val, ULONG *len);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_BatteryGetStatus(CHAR* Val, ULONG *len);
 
@@ -1231,12 +988,6 @@ INT mta_hal_BatteryGetStatus(CHAR* Val, ULONG *len);
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_BatteryGetLife(CHAR* Val, ULONG *len);
@@ -1251,9 +1002,6 @@ INT mta_hal_BatteryGetLife(CHAR* Val, ULONG *len);
 * @retval RETURN_ERR if any error is detected
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_BatteryGetInfo(PMTAMGMT_MTA_BATTERY_INFO pInfo);
 
@@ -1264,12 +1012,6 @@ INT mta_hal_BatteryGetInfo(PMTAMGMT_MTA_BATTERY_INFO pInfo);
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_BatteryGetPowerSavingModeStatus(ULONG *pValue);
@@ -1282,12 +1024,6 @@ INT mta_hal_BatteryGetPowerSavingModeStatus(ULONG *pValue);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 
 INT mta_hal_Get_MTAResetCount(ULONG *resetcnt);
@@ -1299,12 +1035,6 @@ INT mta_hal_Get_MTAResetCount(ULONG *resetcnt);
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 
@@ -1319,9 +1049,6 @@ INT mta_hal_Get_LineResetCount(ULONG *resetcnt);
 * @retval RETURN_ERR if any error is detected
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_ClearCalls(ULONG InstanceNumber);
 
@@ -1334,12 +1061,6 @@ INT mta_hal_ClearCalls(ULONG InstanceNumber);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_getDhcpStatus(MTAMGMT_MTA_STATUS *output_pIpv4status, MTAMGMT_MTA_STATUS *output_pIpv6status);
 
@@ -1351,44 +1072,29 @@ INT mta_hal_getDhcpStatus(MTAMGMT_MTA_STATUS *output_pIpv4status, MTAMGMT_MTA_ST
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_getConfigFileStatus(MTAMGMT_MTA_STATUS *poutput_status);
 
 /**
 * @brief Get the register status for all lines
 * @param[out] output_status_array - return array buffer for all line register status from MTAMGMT_MTA_STATUS enumeration.
-* @param[in] array_size - It is an integer variable with 4 bytes size, buffer size (total line number). The range of values are -2^31 to (2^31)-1.
+* @param[in] array_size - It is an integer variable with 4 bytes size, buffer size (total line number).
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
-*
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_getLineRegisterStatus(MTAMGMT_MTA_STATUS *output_status_array, int array_size);
 
 /**
 * @brief Set boolean value passed to reset MTA device.
-* @param[in] bResetValue - boolean value of 1 byte size, to reset the device. The values are: "TRUE", "FALSE".
+* @param[in] bResetValue - boolean value of 1 byte size, to reset the device.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT mta_hal_devResetNow(BOOLEAN bResetValue);
@@ -1401,12 +1107,6 @@ INT mta_hal_devResetNow(BOOLEAN bResetValue);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_getMtaOperationalStatus(MTAMGMT_MTA_STATUS *operationalStatus);
 
@@ -1418,12 +1118,6 @@ INT mta_hal_getMtaOperationalStatus(MTAMGMT_MTA_STATUS *operationalStatus);
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_getMtaProvisioningStatus(MTAMGMT_MTA_PROVISION_STATUS *provisionStatus);
 
@@ -1432,11 +1126,16 @@ INT mta_hal_getMtaProvisioningStatus(MTAMGMT_MTA_PROVISION_STATUS *provisionStat
 #define MTA_DHCPOPTION122CCCV6DSSID1_MAX         32
 #define MTA_DHCPOPTION122CCCV6DSSID2_MAX         32
 
+/**
+ * @brief Represents the MTA Provisioning IP Modes.
+ *
+ * This enumeration is used to distinguish between different MTA Provisioning IP Modes.
+ */
 
 typedef  enum {
-   MTA_IPV4=0,
-   MTA_IPV6=1,
-   MTA_DUAL_STACK=2,
+   MTA_IPV4=0,          /**<  IPv4 mode */
+   MTA_IPV6=1,          /**<  IPv6 mode */
+   MTA_DUAL_STACK=2,    /**<  Dual stack mode */
 } MTAMGMT_MTA_PROV_IP_MODE; // MTAMGMT_PROVISIONING_PARAMS.MtaIPMode
 
 
@@ -1444,12 +1143,12 @@ typedef struct _MTAMGMT_PROVISIONING_PARAMS
 {
 
 INT  MtaIPMode;
-INT  DhcpOption2171CccV6DssID1Len;                                       // Length of DhcpOption2171CccV6DssID1
-INT  DhcpOption2171CccV6DssID2Len;                                       // Length of DhcpOption2171CccV6DssID2
-CHAR DhcpOption122Suboption1[MTA_DHCPOPTION122SUBOPTION1_MAX+1];         // 4 byte hex value ie. FFFFFFFF = "255.255.255.255". IPv4 addresses MUST be encoded as 4 binary octets in network  byte-order (high order byte first).
-CHAR DhcpOption122Suboption2[MTA_DHCPOPTION122SUBOPTION2_MAX+1];        //  4 byte hex value ie. FFFFFFFF = "255.255.255.255"
-CHAR DhcpOption2171CccV6DssID1[MTA_DHCPOPTION122CCCV6DSSID1_MAX+1];     // 32 byte hex value
-CHAR DhcpOption2171CccV6DssID2[MTA_DHCPOPTION122CCCV6DSSID2_MAX+1];     // 32 byte hex value
+INT  DhcpOption2171CccV6DssID1Len;                                      /**<  Length of DhcpOption2171CccV6DssID1 */
+INT  DhcpOption2171CccV6DssID2Len;                                      /**<  Length of DhcpOption2171CccV6DssID2 */
+CHAR DhcpOption122Suboption1[MTA_DHCPOPTION122SUBOPTION1_MAX+1];        /**<  4 byte hex value ie. FFFFFFFF = "255.255.255.255". IPv4 addresses MUST be encoded as 4 binary octets in network  byte-order (high order byte first). */
+CHAR DhcpOption122Suboption2[MTA_DHCPOPTION122SUBOPTION2_MAX+1];        /**<  4 byte hex value ie. FFFFFFFF = "255.255.255.255" */
+CHAR DhcpOption2171CccV6DssID1[MTA_DHCPOPTION122CCCV6DSSID1_MAX+1];     /**<  32 byte hex value */
+CHAR DhcpOption2171CccV6DssID2[MTA_DHCPOPTION122CCCV6DSSID2_MAX+1];     /**<  32 byte hex value */
 }
 MTAMGMT_PROVISIONING_PARAMS, *PMTAMGMT_MTA_PROVISIONING_PARAMS;
 
@@ -1463,36 +1162,26 @@ MTAMGMT_PROVISIONING_PARAMS, *PMTAMGMT_MTA_PROVISIONING_PARAMS;
 * @retval RETURN_ERR if any error is detected
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 INT mta_hal_start_provisioning(PMTAMGMT_MTA_PROVISIONING_PARAMS pParameters);
 
 /**
-* @brief This call back will be invoked to returing MTA line
-* @param output_status_array - return array buffer for all line register status from MTAMGMT_MTA_STATUS enumeration.
-* @param array_size - It is a 4 byte integer that provides buffer size (total line number). The range of values are -2^31 to (2^31)-1.
+* @brief Callback function type for getting MTA line register status.
+*        This callback function is used to obtain the status of line registration.
+* @param output_status_array - return array buffer for all line register status data from MTAMGMT_MTA_STATUS enumeration.
+* @param array_size - It is a 4 byte integer that provides buffer size (total line number).
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
 * @retval RETURN_ERR if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
-*
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
-*
 */
 typedef INT ( * mta_hal_getLineRegisterStatus_callback)(MTAMGMT_MTA_STATUS *output_status_array, int array_size);
 
 /**
-* @brief This call back will be invoked to returing MTA line
+* @brief Register a callback function for line register status updates.
+*        This function registers a callback that will be called whenever there is an update in the line register status.
 * @param[in] callback_proc - Callback registration function.
-*
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 

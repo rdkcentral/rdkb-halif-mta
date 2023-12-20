@@ -449,7 +449,7 @@ _MTAMGMT_MTA_CALLP
 MTAMGMT_MTA_CALLP,  *PMTAMGMT_MTA_CALLP;
 
 /**
- * @brief Structure to hold the DSX log entries.
+ * @brief Structure to hold the DSX(Digital Signal Cross-connect) log entries.
  * @note Ensure that any value specified does not exceed the buffer size
  * limit defined.
  */
@@ -759,9 +759,9 @@ INT mta_hal_GetHandsets(ULONG* pulCount, PMTAMGMT_MTA_HANDSETS_INFO* ppHandsets)
 INT   mta_hal_GetCalls(ULONG InstanceNumber, ULONG *Count, PMTAMGMT_MTA_CALLS *ppCfg);
 
 /**
-* @brief Retrieve the Call processing status info for the line number
+* @brief Retrieve the Call processing status information for the line number
 * @param[in]  LineNumber - Unsigned long integer that provides Line number for which to retrieve info on Call processing status.
-* @param[out]  pCallp - Call processing info, to be returned.
+* @param[out]  pCallp - Call processing information, to be returned.
 
 *
 * @return The status of the operation.

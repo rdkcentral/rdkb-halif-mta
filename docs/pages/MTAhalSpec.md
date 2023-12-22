@@ -44,7 +44,8 @@ All API's are expected to be called from multiple process.
 The client is responsible to allocate and deallocate memory for necessary APIs as specified in API Documentation.
 Different 3rd party vendors allowed to allocate memory for internal operational requirements. In this case 3rd party implementations should be responsible to de-allocate internally.
 
-[TODO]: # (State a footprint requirement. Example: This should not exceed XXXX KB.)
+TODO:
+State a footprint requirement. Example: This should not exceed XXXX KB.
 
 ## Power Management Requirements
 
@@ -61,7 +62,8 @@ The APIs are expected to work synchronously and should complete within a time pe
 Any calls that can fail due to the lack of a response from connected device should have a timeout period in accordance with any API documentation.
 The upper layers will call this API from a single thread context, this API should not suspend.
 
-[TODO]: # (As we state that they should complete within a time period, we need to state what that time target is, and pull it from the spec if required. Define the timeout requirement.)
+TODO:
+As we state that they should complete within a time period, we need to state what that time target is, and pull it from the spec if required. Define the timeout requirement.
 
 ## Internal Error Handling
 

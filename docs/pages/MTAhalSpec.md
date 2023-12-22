@@ -125,8 +125,6 @@ All HAL function prototypes and datatype definitions are available in `mta_hal.h
 
 Covered as per "Description" sections in the API documentation.
 
-### UML Diagrams
-
 ## Sequence Diagram
 
 ```mermaid

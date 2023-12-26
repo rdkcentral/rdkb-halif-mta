@@ -10,6 +10,7 @@
 - `DSX` \- Digital Signal Cross-connect
 
 ## Description
+
 The diagram below describes a high-level software architecture of the MTA(Media Terminal Adapter) HAL module stack.
 
 ![MTA HAL Architecture Diag](images/mta_hal_architecture.png)
@@ -33,7 +34,7 @@ The interface is not thread safe.
 
 Any module which is invoking the MTA HAL API should ensure calls are made in a thread safe manner.
 
-Vendors can create internal threads/events to meet their operation requirements.  These should be responsible to synchronize between the calls, events and cleaned up on closure.
+Vendors can create internal threads/events to meet their operation requirements. These should be responsible to synchronize between the calls, events and cleaned up on closure.
 
 ## Process Model
 
@@ -81,7 +82,7 @@ Following non functional requirement should be supported by the component.
 
 MTA HAL component should log all the error and critical informative messages, preferably using printf, syslog which helps to debug/triage the issues and understand the functional flow of the system.
 
-The logging should be consistence across all HAL components.
+The logging should be consistent across all HAL components.
 
 If the vendor is going to log then it has to be logged in `xxx_vendor_hal.log` file name which can be placed in `/rdklogs/logs/` or `/var/tmp/` directory.
 
@@ -115,7 +116,7 @@ Each API interface will be versioned using [Semantic Versioning 2.0.0](https://s
 
 None
 
-# Interface API Documentation
+## Interface API Documentation
 
 All HAL function prototypes and datatype definitions are available in `mta_hal.h` file.
   1.  Components/Processes must include `mta_hal.h` to make use of MTA HAL capabilities

@@ -954,7 +954,7 @@ INT mta_hal_BatteryGetPowerStatus(CHAR *Val, ULONG *len);
 * @brief Get the battery condition
 * @param[out] Val - It is a character pointer which stores the battery condition, to be returned. Possible values are "Good" or "Bad".
 *                   \n It is a zero-terminated string.
-* @param[out] len - It is an unsigned long integer pointer of 4 bytes size, string length, to be returned. The range is 0 to the (2^32)-1.
+* @param[in] len - It is an unsigned long integer pointer of 4 bytes size, string length, to be returned. The range is 0 to the (2^32)-1.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.
@@ -981,7 +981,7 @@ INT mta_hal_BatteryGetStatus(CHAR* Val, ULONG *len);
 * @brief Get the battery life status
 * @param[out] Val - It is a character pointer which stores the battery life status, to be returned. The values are: "Need Replacement", or "Good".
 *                   \n It is a zero-terminated string.
-* @param[out] len - It is an unsigned long integer pointer of 4 bytes size, string length, to be returned. The range is 0 to the (2^32)-1.
+* @param[in] len - It is an unsigned long integer pointer of 4 bytes size, string length, to be returned. The range is 0 to the (2^32)-1.
 *
 * @return The status of the operation.
 * @retval RETURN_OK if successful.

@@ -21,7 +21,7 @@ MTA HAL is an abstraction layer implemented to abstract the underlying MTA hardw
 
 ### Initialization and Startup
 
-The below mentioned APIs initialize the MTA HAL layers/code. The MTA client module should call the mentioned APIs initially during bootup/initialization.
+The below-mentioned APIs initialize the MTA HAL layers/code. The MTA client module should call the mentioned APIs initially during bootup/initialization.
 
 - `mta_hal_InitDB()`
 - `mta_hal_start_provisioning()`
@@ -58,9 +58,7 @@ There are no asynchronous notifications.
 
 ## Blocking calls
 
-The APIs are expected to work synchronously and should be completed within a time period commensurate with the complexity of the operation and in accordance with any relevant MTA specification. 
-Any calls that can fail due to the lack of a response from the connected device should have a timeout period in accordance with any API documentation.
-The upper layers will call this API from a single thread context, this API should not suspend.
+The APIs are expected to work synchronously and should be completed within a time commensurate with the complexity of the operation and by any relevant MTA specification. Any procedures that risk failure due to unresponsive connected devices should adhere to a timeout period. This timeout should be based on standard specifications or as stated in the corresponding API documentation, to maintain optimal lower interface operations.
 
 TODO: Moving forward, we plan to specify the time limit within which tasks should be completed. This will involve fetching relevant information as needed, and we aim to clearly define this time-related expectation to avoid confusion in the future.
 

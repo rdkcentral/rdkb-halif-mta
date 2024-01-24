@@ -105,11 +105,8 @@
 
 #ifndef ANSC_IPV4_ADDRESS
 /*
- * TODO:
- * While we're trying really hard to smooth the procedure of switch-over from IPv4 to IPv4, there
- * are many places where using the IP address as an integer for comparision and calculation is much
- * easier than array-based operation.
- */
+TODO: Facilitate the transition from IPv4 to IPv6, addressing areas where integer-based IP operations are more efficient than array-based.
+*/
 #define  ANSC_IPV4_ADDRESS                                                                  \
          union                                                                              \
          {                                                                                  \
@@ -120,13 +117,7 @@
 
 /* DECT */
 /* 
- *  TODO: 
- *  DH  This is not the right place to place platform/HAL
- *      implementation specific definitions here.
- *      This kind of definitions belongs to hal.c, or another
- *      header file which is included by hal.c
- *
- *  Fix the other RDK-B vendor's code!!!
+ * TODO: DH Move platform/HAL specific definitions to hal.c or an included header, and rectify similar issues in other RDK-B vendor's code. 
  *
 typedef enum
 {
@@ -151,9 +142,7 @@ typedef enum
  */
 
 /*
- *  TODO:
- *  DH  This is also questionable why we have to define this kind of
- *      platform specific capacility in the hal header file
+ * TODO: DH Reevaluate the necessity of defining platform-specific capabilities in the HAL header file.
  */
 #define DECT_MAX_HANDSETS 5
 
@@ -162,7 +151,7 @@ typedef enum
 **********************************************************************/
 /**
  * @struct _MTAMGMT_MTA_DECT
- * @brief It is a structure to populate information/settings associated with DECT module.
+ * @brief It is a structure to populate information/settings associated with the DECT module.
  * @note Ensure that any value specified does not exceed the buffer size
  * limit defined.
  */
@@ -170,9 +159,9 @@ typedef struct
 _MTAMGMT_MTA_DECT
 {
     ULONG                           RegisterDectHandset;    /**< Information required for these parameters is unknown.
-                                                                 Currently these values are set to 0 in the CCSP code. */
+                                                                 Currently, these values are set to 0 in the CCSP code. */
     ULONG                           DeregisterDectHandset;  /**< Information required for these parameters is unknown.
-                                                                 Currently these values are set to 0 in the CCSP code. */
+                                                                 Currently, these values are set to 0 in the CCSP code. */
     char                            HardwareVersion[64];    /**< Contains the DECT module hardware version. */
     char                            RFPI[64];               /**< RFPI value of the DECT module from the EEPROM. */
     char                            SoftwareVersion[64];    /**< Contains the DECT module software version. */
@@ -193,8 +182,8 @@ _MTAMGMT_MTA_HANDSETS_INFO
     char                            LastActiveTime[64];     /**< Last Active Time of the MTA Handset */
     char                            HandsetName[64];        /**< Handset Name */
     char                            HandsetFirmware[64];    /**< Handset version     */
-    char                            OperatingTN[64];        /**< Operating TN. At present only TN1 will be assigned to DECT phones. */
-    char                            SupportedTN[64];        /**< Supported TN. At present only TN1 will be assigned to DECT phones. */
+    char                            OperatingTN[64];        /**< Operating TN. At present, only TN1 will be assigned to DECT phones. */
+    char                            SupportedTN[64];        /**< Supported TN. At present, only TN1 will be assigned to DECT phones. */
 }
 MTAMGMT_MTA_HANDSETS_INFO,  *PMTAMGMT_MTA_HANDSETS_INFO;
 
@@ -206,44 +195,44 @@ MTAMGMT_MTA_HANDSETS_INFO,  *PMTAMGMT_MTA_HANDSETS_INFO;
 typedef  struct
 _MTAMGMT_MTA_DHCP_INFO
 {
-    ANSC_IPV4_ADDRESS               IPAddress;                  /**< It is a ANSC_IPV4_ADDRESS union type value that represents the IP Address.  The union members are defined as below:
+    ANSC_IPV4_ADDRESS               IPAddress;                  /**< It is an ANSC_IPV4_ADDRESS union type value that represents the IP Address.  The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
-                                                                     Value - A 32 bit unsigned integer value.
+                                                                     Value - A 32-bit unsigned integer value.
                                                                      The valid ranges for IPv4 addresses are: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
     CHAR                            BootFileName[64];           /**< Represents the Boot File Name.*/
     CHAR                            FQDN[64];                   /**< Represents the fully qualified domain name.*/
-    ANSC_IPV4_ADDRESS               SubnetMask;                 /**< It is a ANSC_IPV4_ADDRESS union type value that represents the Subnet Mask.  The union members are defined as below:
+    ANSC_IPV4_ADDRESS               SubnetMask;                 /**< It is an ANSC_IPV4_ADDRESS union type value that represents the Subnet Mask.  The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
-                                                                     Value - A 32 bit unsigned integer value.
+                                                                     Value - A 32-bit unsigned integer value.
                                                                      The range of values for each octet is 0 to 255. */
-    ANSC_IPV4_ADDRESS               Gateway;                    /**< It is a ANSC_IPV4_ADDRESS union type value that represents the Gateway.  The union members are defined as below:
+    ANSC_IPV4_ADDRESS               Gateway;                    /**< It is an ANSC_IPV4_ADDRESS union type value that represents the Gateway.  The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
-                                                                     Value - A 32 bit unsigned integer value.
+                                                                     Value - A 32-bit unsigned integer value.
                                                                      The valid range is: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
     ULONG                           LeaseTimeRemaining;         /**< Represents the Lease Time Remaining. */
     CHAR                            RebindTimeRemaining[64];    /**< Represents the Rebind Time Remaining. */
     CHAR                            RenewTimeRemaining[64];     /**< Represents the Renew Time Remaining. */
-    ANSC_IPV4_ADDRESS               PrimaryDNS;                 /**< It is a ANSC_IPV4_ADDRESS union type value that represents the Primary DNS. The union members are defined as below:
+    ANSC_IPV4_ADDRESS               PrimaryDNS;                 /**< It is an ANSC_IPV4_ADDRESS union type value that represents the Primary DNS. The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
-                                                                     Value - A 32 bit unsigned integer value.
+                                                                     Value - A 32-bit unsigned integer value.
                                                                      The valid range is: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
-    ANSC_IPV4_ADDRESS               SecondaryDNS;               /**< It is a ANSC_IPV4_ADDRESS union type value that represents the Secondary DNS. The union members are defined as below:
+    ANSC_IPV4_ADDRESS               SecondaryDNS;               /**< It is an ANSC_IPV4_ADDRESS union type value that represents the Secondary DNS. The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
-                                                                     Value - A 32 bit unsigned integer value.
+                                                                     Value - A 32-bit unsigned integer value.
                                                                      The valid range is: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
-    CHAR                            DHCPOption3[64];            /**< DHCP Option 3. It is a 64 bytes character array that specifies the IP address of the default gateway(router) for the DHCP client to use for internet access and communication with devices outside the local network. */
-    CHAR                            DHCPOption6[64];            /**< DHCP Option 6. It is a 64 bytes character array that specifies the IP Address of a DNS servers that the DNS client should use for domain name resolution. */
-    CHAR                            DHCPOption7[64];            /**< DHCP Option 7. It is a 64 bytes character array that specifies the IP address of a log server that the DHCP client can use for logging purpose. */
-    CHAR                            DHCPOption8[64];            /**< DHCP Option 8. It is a 64 bytes character array that specifies the IP address of a cookie server that the DHCP client can use to retrieve cookies. */
+    CHAR                            DHCPOption3[64];            /**< DHCP Option 3. It is a 64-byte character array that specifies the IP address of the default gateway(router) for the DHCP client to use for internet access and communication with devices outside the local network. */
+    CHAR                            DHCPOption6[64];            /**< DHCP Option 6. It is a 64-byte character array that specifies the IP Address of a DNS server that the DNS client should use for domain name resolution. */
+    CHAR                            DHCPOption7[64];            /**< DHCP Option 7. It is a 64-byte character array that specifies the IP address of a log server that the DHCP client can use for logging purposes. */
+    CHAR                            DHCPOption8[64];            /**< DHCP Option 8. It is a 64-byte character array that specifies the IP address of a cookie server that the DHCP client can use to retrieve cookies. */
     CHAR                            PCVersion[64];              /**< PacketCable version. Example: "2.0" */
     CHAR                            MACAddress[64];             /**< The telephony IPv4 MAC address for this device */
-    ANSC_IPV4_ADDRESS               PrimaryDHCPServer;          /**< It is a ANSC_IPV4_ADDRESS union type value that represents the Primary DHCP server. The union members are defined as below:
+    ANSC_IPV4_ADDRESS               PrimaryDHCPServer;          /**< It is an ANSC_IPV4_ADDRESS union type value that represents the Primary DHCP server. The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
-                                                                     Value - A 32 bit unsigned integer value.
+                                                                     Value - A 32-bit unsigned integer value.
                                                                      The valid range is: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
-    ANSC_IPV4_ADDRESS               SecondaryDHCPServer;        /**< It is a ANSC_IPV4_ADDRESS union type value that represents the Secondary DHCP server. The union members are defined as below:
+    ANSC_IPV4_ADDRESS               SecondaryDHCPServer;        /**< It is an ANSC_IPV4_ADDRESS union type value that represents the Secondary DHCP server. The union members are defined as below:
                                                                      Dot - An unsigned character array of size 4.
-                                                                     Value - A 32 bit unsigned integer value.
+                                                                     Value - A 32-bit unsigned integer value.
                                                                      The valid range is: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
 }
 MTAMGMT_MTA_DHCP_INFO, *PMTAMGMT_MTA_DHCP_INFO;
@@ -545,14 +534,15 @@ typedef enum{
 **********************************************************************************/
 
 /*
- * TODO:
+ * TODO: Extend returns codes for all functions and change to enums
+ * 1. Extend the return codes by listing out the possible reasons of failure, to improve the interface in the future. This was reported during the review for header file migration to opensource github.
  *
- * 1. Extend the return codes by listing out the possible reasons of failure, to improve the interface in the future.
- *    This was reported during the review for header file migration to opensource github.
+ * TODO: Add return cases for battery functions with enums
  * 2. Add return error cases for battery related functions with and without battery present.
- * 3. Plan to split the header files based on purpose of the APIs, for example, DHCP, battery etc.
  *
- */
+ * TODO: Split header files based on API and re-include to not affect clients
+ * 3. Plan to split the header files based on purpose of the APIs, for example, DHCP, battery etc.
+*/
 
 /**
 * @brief Retrieves the global information for all shared DBs and makes them accessible locally.

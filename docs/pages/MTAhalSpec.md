@@ -8,6 +8,8 @@
 - `RDK-B` \- Reference Design Kit for Broadband Devices
 - `OEM` \- Original Equipment Manufacture
 - `DSX` \- Digital Signal Cross-connect
+- `TN` \- Telephone Number
+- `DHCP` \- Dynamic Host Configuration Protocol
 
 ## Description
 

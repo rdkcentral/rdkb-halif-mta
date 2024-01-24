@@ -11,6 +11,7 @@
 - `TN` \- Telephone Number
 - `DHCP` \- Dynamic Host Configuration Protocol
 - `DHCPv6` \- Dynamic Host Configuration Protocol for IPv6
+- `PIN` \- Personal Identification Number
 
 ## Description
 

@@ -68,7 +68,7 @@ As we state that they should complete within a time period, we need to state wha
 
 ## Internal Error Handling
 
-All the MTA HAL APIs should return error synchronously as a return argument. HAL is responsible to handle system errors(e.g. out of memory) internally.
+All HAL APIs are designed to return all errors synchronously as part of their return arguments. The responsibility to manage system errors such as memory shortages and errors must be returned so the caller can take appropriate action.
 
 ## Persistence Model
 

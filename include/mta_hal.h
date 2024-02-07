@@ -350,7 +350,7 @@ typedef struct _MTAMGMT_MTA_CALLS
     CHAR RemoteJBNominalDelay[MTA_HAL_SHORT_VALUE_LEN];       /**< Nominal jitter buffer length at the remote side in milliseconds. */
     CHAR RemoteJBMaxDelay[MTA_HAL_SHORT_VALUE_LEN];           /**< Maximum jitter buffer length at the remote side in milliseconds. */
     CHAR RemoteJBAbsMaxDelay[MTA_HAL_SHORT_VALUE_LEN];        /**< Absolute maximum delay at the remote side in milliseconds. */
-} MTAMGMT_MTA_CALLS, *PMTAMGMT_MTA_CALLS
+} MTAMGMT_MTA_CALLS, *PMTAMGMT_MTA_CALLS;
 
 /**
  * @brief Structure representing line table information for an MTA (Multimedia Terminal Adapter).

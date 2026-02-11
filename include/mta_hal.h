@@ -198,7 +198,7 @@ typedef struct _MTAMGMT_MTA_HANDSETS_INFO
 typedef struct _MTAMGMT_MTA_DHCP_INFO
 {
     ANSC_IPV4_ADDRESS IPAddress;               /**< IP Address assigned to the MTA. */
-    CHAR BootFileName[64];                     /**< Boot file name received from the DHCP server. */
+    CHAR BootFileName[256];                     /**< Boot file name received from the DHCP server. */
     CHAR FQDN[64];                             /**< Fully Qualified Domain Name. */
     ANSC_IPV4_ADDRESS SubnetMask;              /**< Subnet mask for the IP address. */
     ANSC_IPV4_ADDRESS Gateway;                 /**< Default gateway IP address. */
@@ -228,7 +228,7 @@ typedef struct _MTAMGMT_MTA_DHCP_INFO
 typedef struct _MTAMGMT_MTA_DHCPv6_INFO
 {
     CHAR IPV6Address[INET6_ADDRSTRLEN];                 /**< IPv6 Address assigned to the MTA. */
-    CHAR BootFileName[64];                             /**< Boot file name received from the DHCPv6 server. */
+    CHAR BootFileName[256];                             /**< Boot file name received from the DHCPv6 server. */
     CHAR FQDN[64];                                     /**< Fully Qualified Domain Name. */
     CHAR Prefix[INET6_ADDRSTRLEN];                     /**< Network prefix associated with the IPv6 address. */
     CHAR Gateway[INET6_ADDRSTRLEN];                    /**< Default gateway IPv6 address. */

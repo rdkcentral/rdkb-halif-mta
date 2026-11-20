@@ -132,10 +132,9 @@ on each declaration in `mta_hal.h`.
 - **Do not free implementation memory:** Do not free or keep the arrays returned through
   pointer-to-pointer out-parameters, or the memory reached through the `pCalls` and `pDescription`
   members; copy what is needed before the next MTA HAL call.
-- **Keep handed-in buffers stable:** Do not free, reuse or overwrite a buffer passed to the
-  interface until the vendor implementation confirms it does not retain the pointer. Keep the
-  structure passed to `mta_hal_start_provisioning()` valid at least until provisioning has
-  progressed.
+- **Keep handed-in buffers stable:** Do not free, reuse or overwrite a caller-supplied data buffer
+  until the call returns. This includes the structure passed to
+  `mta_hal_start_provisioning()`; the implementation must copy any data needed after return.
 
 #### Module Responsibilities
 
@@ -299,8 +298,18 @@ and `ANSC_IPV4_ADDRESS` are portability shims, not feature switches: they let a 
 defines one of those names keep its own definition. A caller that does so must keep its definition
 compatible with the header's, because the declarations are expressed in those names.
 
-Product-level variation is a matter of hardware presence — the backup battery and the `DECT`
-subsystem — discovered at run time through the calls under `Optional Components`.
+Product-level variation includes the backup battery and the `DECT` subsystem; see
+`Optional Components` for the available runtime queries.
+
+### Optional Components
+
+`mta_hal_BatteryGetInstalled()` reports whether a backup battery is fitted. Check for
+`RETURN_OK` before interpreting its output: `TRUE` means installed and `FALSE` means absent.
+
+`mta_hal_DectGetEnable()` reports whether the `DECT` subsystem is enabled, not whether its
+hardware is present. The interface declares no dedicated DECT presence query, so a disabled
+result does not establish that DECT is unsupported. Unsupported-hardware behavior must be
+confirmed with the vendor; `RETURN_ERR` alone does not identify hardware absence.
 
 ## Interface API Documentation
 
@@ -319,10 +328,11 @@ Every function is a synchronous getter, setter or command addressed either to th
 to one voice line. Results are written through caller-supplied pointers and status is reported by
 return value.
 
-- **Line addressing:** `mta_hal_LineTableGetEntry()` and `mta_hal_TriggerDiagnostics()` take a
-  zero-based index below the count `mta_hal_LineTableGetNumberOfEntries()` reports. The other
-  per-line calls take an identifier from the line-table entry: `mta_hal_GetCALLP()` its
-  `LineNumber`, and `mta_hal_GetCalls()` and `mta_hal_ClearCalls()` its `InstanceNumber`.
+- **Line addressing:** `mta_hal_LineTableGetEntry()` takes a zero-based table index below the
+  count `mta_hal_LineTableGetNumberOfEntries()` reports. `mta_hal_TriggerDiagnostics()` takes a
+  line number, as documented in its declaration. The other per-line calls use identifiers from
+  the line-table entry: `mta_hal_GetCALLP()` its `LineNumber`, and `mta_hal_GetCalls()` and
+  `mta_hal_ClearCalls()` its `InstanceNumber`.
 - **Point-in-time reads:** Reads report current values. Line register status is the only value also
   pushed to the caller; see `Asynchronous Notification Model`.
 - **Commands report acceptance:** `mta_hal_start_provisioning()`, `mta_hal_TriggerDiagnostics()`
